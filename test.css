@@ -4,10 +4,11 @@ body, html{
   margin:0px;
 }
 
-div{
+#page1{
       display:inline-block;
       width:120px;
       height:120px;
+      overflow:hidden;
       border-radius:50%;
     }
 
