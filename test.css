@@ -1,0 +1,19 @@
+body, html{
+  height:100%;
+  width:100%;
+  margin:0px;
+}
+
+div{
+      display:inline-block;
+      width:120px;
+      height:120px;
+      border-radius:50%;
+    }
+
+  img{
+      height:200%;
+      width:auto;
+      margin-left:-100px;
+      margin-top:-40px;
+    }
