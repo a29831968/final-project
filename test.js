@@ -47,8 +47,8 @@ function centerToright(x){
           "width":"auto",
           "max-width":'1000%'
         });
-        $("div:nth-child("+x+")").css({"z-index":"+=1"});
         $("div:nth-child("+(x+1)+")").css({"z-index":"-=1"});
+        $("div:nth-child("+x+")").css({"z-index":"+=1"});
 }
 function centerToleft(x){
         console.log("center to left "+current);
