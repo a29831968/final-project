@@ -143,7 +143,21 @@ function wordsOut(x)    //let words out
 }
 $(document).ready(function()
   {
-    p
+    $('#box').click(function(){
+     $('#aboutus').animate(
+        {
+            'top':'150px',
+           'left':'200px',
+          'width':'0px',
+           'height':'0px',
+            'z-index':'7'
+        });
+     $('#box').css(
+         {
+           'z-index':'-1',
+           'opacity':'0'
+          });
+       });
     $('#button').click(function()
         {
           $('#aboutus').animate(
@@ -152,9 +166,16 @@ $(document).ready(function()
                'left':'200px',
                'width':'1200px',
                'height':'900px',
-             },500,);
-              
-              );
+             },500,
+            function()
+            {
+              $('#box').animate(
+            {     
+               'display':'block',
+               'opacity':'0.6',
+               'z-index':'6'
+            },300,);
+            }); 
         });
     $('#button').mouseover(function()
     {
