@@ -160,22 +160,19 @@ $(document).ready(function()
        });
     $('#button').click(function()
         {
-          $('#aboutus').animate(
-              {
-               'top':'150px',
-               'left':'200px',
-               'width':'1200px',
-               'height':'900px',
-             },500,
-            function()
-            {
               $('#box').animate(
             {     
                'display':'block',
                'opacity':'0.6',
                'z-index':'6'
-            },300,);
-            }); 
+            },100,);
+          $('#aboutus').animate(
+              {
+               'top':'300px',
+               'left':'400px',
+               'width':'900px',
+               'height':'600px',
+             },500); 
         });
     $('#button').mouseover(function()
     {
