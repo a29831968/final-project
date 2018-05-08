@@ -4,17 +4,40 @@ body{
 }
 
 #frame{
+ position:absolute;
  top:50vh;
  left:50vw;
  margin-top:0vh;
  margin-left:0vw;
  height:0vh;
  width:0vw;
- position:relative;
 }
 
+#login_btn{
+  position:absolute;
+  left:50vw;
+  top:84vh;
+  margin-left:-24vw;
+  height:5vh;
+  width:48vw;
+}
+
+#word{
+  position:absolute;
+  left:50vw;
+  top:90vh;
+  margin-left:-23vw;
+  width:46vw;
+  height:5vh;
+}
+p{
+  height:100%;
+  width:100%;
+  font-size:20px;
+  color:white;
+}
 img{
   height:100%;
   width:100%;
-  position:absolute;
 }
+
