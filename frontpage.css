@@ -1,0 +1,39 @@
+#back{
+  width:1242px;
+  height:2208px;
+  background-image:url("https://luffy.ee.ncku.edu.tw/~E24056899/final_pic/01.png");
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  margin:auto;
+}
+#back #logo{
+  width:1024px;
+  height:864px;
+  background-image:url("https://luffy.ee.ncku.edu.tw/~E24056899/final_pic/Comp-3.gif");
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  margin-left:109px;
+  margin-top:450px;
+  position:absolute;
+}
+#back #fb{
+  width:789px;
+  height:150px;
+  background-image:url("https://luffy.ee.ncku.edu.tw/~E24056899/final_pic/ICON1.png");
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  margin-left:226.5px;
+  margin-top:1700px;
+  position:absolute;
+}
+#back #word{
+  width:800px;
+  height:100px;
+  margin-top:1900px;
+  margin-left:230px;
+  position:absolute;
+  font-size:20px;
+}
