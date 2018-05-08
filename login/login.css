@@ -16,19 +16,19 @@ body{
 #login_btn{
   position:absolute;
   left:50vw;
-  top:84vh;
-  margin-left:-24vw;
-  height:5vh;
-  width:48vw;
+  top:115vw;
+  margin-left:-29vw;
+  height:10vw;
+  width:58vw;
 }
 
 #word{
   position:absolute;
   left:50vw;
-  top:90vh;
+  top:125vw;
   margin-left:-23vw;
   width:46vw;
-  height:5vh;
+  height:10vw;
 }
 p{
   height:100%;
