@@ -19,6 +19,7 @@
   "homepage": "https://github.com/a29831968/final-project#readme",
   "dependencies": {
     "epress": "0.0.1-security",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "mysql": "^2.15.0"
   }
 }

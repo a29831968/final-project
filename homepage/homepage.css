@@ -1,0 +1,14 @@
+body{
+  margin:0px;
+  height:100%;
+  width:auto;
+  background-size:100% auto;
+  background-image:url("asset/map.gif");
+}
+
+#bottom{
+  display:inline-block;
+  width:100%;
+  height:auto;
+  text-align:bottom;
+}
