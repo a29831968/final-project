@@ -24,5 +24,4 @@ function login() {
     console.log("Response goes here!");
   }, {scope: 'email'});            
 }
-//var status = FB.getLoginStatus();
-/
+
