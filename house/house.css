@@ -1,7 +1,23 @@
 
-
-
-
+body,html
+{
+   height: 100%;
+    width:100%;
+    padding: 0;
+    margin: 0;
+            }
+div img{
+  width:100%;
+  height:auto;
+}
+.background_object{
+ position:absolute;
+ bottom:0px;
+ 
+}
+body {
+  background-color:#99D7EB;
+}
 
 
 
