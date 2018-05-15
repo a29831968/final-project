@@ -1,9 +1,17 @@
-html,body{
-  height:100%;
+
+
+body,html
+{
+   height: 100%;
+    width:100%;
+    padding: 0;
+    margin: 0;
+            }
+div img{
   width:100%;
-  padding:0;
-  margin:0;
+  height:auto;
 }
+<<<<<<< HEAD
 div img{
   width:100%;
   height:auto;
@@ -14,4 +22,21 @@ body{
 .background_object{
   position:absolute;
   bottom:0px;
+=======
+.background_object{
+ position:absolute;
+ bottom:0px;
+ 
 }
+body {
+  background-color:#99D7EB;
+>>>>>>> 5899b5fbb2d4d4ff586b13ad3d0b5932edd45094
+}
+
+
+
+
+
+
+
+
