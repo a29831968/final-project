@@ -1,19 +1,74 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" type="text/css" href="homepage.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  </head>
-  <body>
-    <img id="bottom" src="asset/bottom.png"/>
-    <img id="logo" src="asset/logo.png"/>
-    <!--
-    <div>
-      <img id="map" src="asset/map.png"/>
-      <img id="back" src="asset/back.png"/>
-      <img id="profile" src="asset/profile.png"/>
-    </div>
-    --!>
-  </body>
+<head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" type="text/css" href="homepage.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+var x=0;
+$(document).ready(function(){
+	$("#friends").click(function(){
+		if(x==0){
+			$("#scroll").animate({opacity:'1'});
+			x++;
+		}
+		else{
+			$("#scroll").animate({opacity:'0'});
+			x--;
+		}
+		console.log("click");
+});
+});
+</script>
+</head>
+<body>
+<div id="scroll">
+	<div class="container">
+		<img src="assets/icon/p1.png"/>
+	</div>
+	<div class="container">
+		<img src="assets/icon/p2.png"/>
+	</div>
+	<div class="container">
+		<img src="assets/icon/p3.png"/>
+	</div>
+	<div class="container">
+		<img src="assets/icon/p3.png"/>
+	</div>
+	<div class="container">
+		<img src="assets/icon/p3.png"/>
+	</div>
+	<div class="container">
+		<img src="assets/icon/p3.png"/>
+	</div>
+	<div class="container">
+		<img src="assets/icon/p3.png"/>
+	</div>
+	<div class="container">
+		<img src="assets/icon/p3.png"/>
+	</div>
+</div>
+<div class="banner" id="upper_banner">
+	
+	<img id="friends" src="assets/icon/01.png"/>
+	<img id="logo" src="assets/icon/LOGOicon.png"/>
+	<img id="logout" src="assets/icon/02.png"/>
+</div>
+<div id="map_bg">
+	<img id="img_map" src="assets/map.gif"/>
+</div>
+<div class="banner" id="lower_banner">
+	
+<img id="profile" src="assets/icon/03.png"/>
+<img id="homepage" src="assets/icon/profile.png"/>
+<img id="map" src="assets/icon/05.png"/>
+
+</div>
+
+
+
+
+</body>
 </html>
