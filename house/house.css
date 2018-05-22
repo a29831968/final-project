@@ -60,3 +60,10 @@ body{
   top:6%;
   right:28%;
 }
+.entrance{       
+  position:absolute;
+  top:10%;
+  left:10%;
+  width:10%;
+  height:10%;
+}  
