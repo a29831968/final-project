@@ -11,19 +11,24 @@ div img{
 body{
   background-color:#80B2D8;
 }
-.background_object{
+.bottom{
   position:absolute;
   bottom:0px;
 }
-.floor{
+.house{
   position:absolute;
-  top:30%;
-  left:5%;
+  top:37%;
+  left:0%;
 }
 .banner{
   position:absolute;
   top:20%;
   left:22%;
+}
+.small_person{
+  position:absolute;
+  bottom:2%;
+  left:15%
 }
 .small_Taiwan{
   position:absolute;
