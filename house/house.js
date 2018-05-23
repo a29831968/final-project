@@ -2,11 +2,17 @@ $(document).ready(function()
     {
        $('.entrance').click(function()
           {
-            window.location.assign("./letter/letter1.html");            
-
-
-
+            $('.switchscreen').animate(
+                {
+                  'left':'0px', 
+                  'top':'0px',
+                   'width':'100%',
+                   'height':'100%'
+                },
+                500,
+               function()
+               {
+                 window.location.assign("./letter/letter1.html"); 
+                });
           });
-
-
     });

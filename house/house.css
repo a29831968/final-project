@@ -62,8 +62,17 @@ body{
 }
 .entrance{       
   position:absolute;
-  top:10%;
+  top:70%;
   left:10%;
   width:10%;
   height:10%;
-}  
+  background-color:black;
+} 
+.switchscreen{
+  position:absolute;
+  top:70%;
+  left:10%;
+  width:0%;
+  height:0%;
+  background-color:blue;
+}
