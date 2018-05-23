@@ -11,24 +11,10 @@ div img{
 body{
   background-color:#80B2D8;
 }
-.bottom{
-  position:absolute;
-  bottom:0px;
-}
 .house{
   position:absolute;
-  top:37%;
+  bottom:0%;
   left:0%;
-}
-.bike{
-  position:absolute;
-  top:79%;
-  left:1%;
-}
-.monster{
-  position:absolute;
-  top:68%;
-  left:75%;
 }
 .banner{
   position:absolute;
@@ -70,15 +56,20 @@ body{
   top:5%;
   right:10%;
 }
-.messenge{
+.cloud{
   position:absolute;
-  top:6%;
-  right:28%;
+  top:15%;
+  right:0%;
+}
+.cloud2{
+  position:absolute;
+  top:20%;
+  left:0%;
 }
 .entrance{       
-  position:absolute;
-  top:10%;
-  left:10%;
-  width:10%;
-  height:10%;
+  position:fixed;
+  top:67.5%;
+  left:46.5%;
+  width:7.5%;
+  height:7.5%;
 }  
