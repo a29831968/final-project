@@ -67,9 +67,19 @@ body{
   left:0%;
 }
 .entrance{       
-  position:fixed;
+  position:absolute;
   top:67.5%;
   left:46.5%;
   width:7.5%;
   height:7.5%;
-}  
+}
+@media only screen and (min-height:1800px){
+  .entrance{
+    top:71%;
+  }
+}
+@media only screen and (min-height:2000px){
+  .entrance{
+    top:73%;
+  }
+}
