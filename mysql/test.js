@@ -7,6 +7,11 @@ $(document).ready(function(){
     },
     success: function(data){
       console.log("District: "+data);
+      for (var i =0; i<data.length ; i++){
+        console.log(data[i].id);
+        console.log(data[i].name);
+        console.log(data[i].lv);
+      }
     }
   })
 })
