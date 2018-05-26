@@ -9,7 +9,7 @@ $(document).ready(function()
                    'width':'100%',
                    'height':'100%'
                 },
-                500,
+                100,
                function()
                {
                  window.location.assign("./letter/letter1.html"); 
