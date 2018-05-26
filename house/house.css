@@ -72,14 +72,49 @@ body{
   left:46.5%;
   width:7.5%;
   height:7.5%;
+} 
+.switchscreen{
+  position:absolute;
+   top:67.5%;
+  left:46.5%;
+  width:0%;
+  height:0%;
+}
+.bike{
+  position:absolute;
+  bottom:8.5%;
+  left:0%;
+}
+.monster{
+  position:absolute;
+  bottom:9%;
+  left:76%;
 }
 @media only screen and (min-height:1800px){
+  .level_line{
+    top:9.5%;
+  }
   .entrance{
     top:71%;
   }
+  .bike{
+    bottom:7.5%;
+  }
+  .monster{
+    bottom:8%;
+  }
 }
 @media only screen and (min-height:2000px){
+  .level_line{
+    top:9.2%;
+  }
   .entrance{
     top:73%;
+  }
+  .bike{
+    bottom:7%;
+  }
+  .monster{
+    bottom:7%;
   }
 }
