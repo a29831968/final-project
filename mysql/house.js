@@ -20,6 +20,14 @@ $(document).ready(function(){
   document.getElementById("block18").addEventListener('click', function() {singleClick("18");})
   document.getElementById("block19").addEventListener('click', function() {singleClick("19");})
   document.getElementById("block20").addEventListener('click', function() {singleClick("20");})
+  $("#testbtn").click(function(){
+    $("#flip").css({display:"block"});
+  })
+
+  $("#flip").turn({
+    width:"168vw", 
+    height:"132vw"
+  });
 });
 
 function singleClick(blockname){

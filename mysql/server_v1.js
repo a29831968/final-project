@@ -46,7 +46,7 @@ con.connect(function(err){
 var user_name="annine";
 var objs_info=[];
 con.connect(function(err){
-  con.query("SELECT * FROM objs WHERE name = ?",user_name, function(err, result){
+  con.query("SELECT * FROM buildings WHERE name = ?",user_name, function(err, result){
     if(err) throw err;
     console.log(result);
     var number=result[0].number;

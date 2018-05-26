@@ -14,7 +14,7 @@ body{
   margin-top:15px;
   margin-left:180px;
 }
-#bag, td{
+#bag, .td{
   border: 12px solid #ffffff;
 }
 .modal{

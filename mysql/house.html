@@ -4,9 +4,12 @@
     <meta charset="utf-8"></meta>
     <link rel="stylesheet" type="text/css" href="house.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- turn.js -->
+    <script type="text/javascript" src="turn.js"></script>
     <title>house</title>
   </head>
   <body>
+    <button style="height:15vw;width:26vw" id="testbtn">test_bag</button>
     <div id="window"><img src="picture/window"></div>
     <table id="villa">
       <tr>
@@ -50,43 +53,130 @@
           </div>
         </td>
       </tr>
-   </table>
-    <!--
-    <div class="house">
-      <img src="picture/house.png">
-    </div>
-    -->
-    <div class="banner">
-    </div>
-    <div class="small_person">
-      <img src="picture/small_person.png">
-    </div>
-    <div class="small_Taiwan">
-      <img src="picture/small_Taiwan.png">
-    </div>
-    <div class="small_map">
-      <img src="picture/small_map.png">
-    </div>
-    <div class="your_head">
-      <img src="picture/head.png">
-    </div>
-    <div class="beside_head">
-      <img src="picture/beside_head.png">
-    </div>
-    <div class="level_line">
-      <img src="picture/level_line.png">
-    </div>
-    <div class="box">
-      <img src="picture/box.png">
-    </div>
-    <div class="cloud">
-      <img src="picture/cloud.png">
-    </div>
-    <div class="cloud2">
-      <img src="picture/cloud2.png">
-    </div>
-    <div class="entrance">
-      <img src="picture/note.png">
+    </table>
+    <div id="flip">
+      <div class="modal">
+        <img id="bag_background" src="asset/bag_background.png">
+        
+        <table id="bag">
+          <tr class="major">
+            <td class="td" id="0"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="1"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="2"><img width="100%" src='asset/block.png' /></td>
+          </tr>
+          <tr class="tag">
+            <td class="td">name</td>
+            <td class="td">name</td>
+            <td class="td">name</td>
+          </tr>
+          <tr class="major">
+            <td class="td" id="3"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="4"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="5"><img width="100%" src='asset/block.png' /></td>
+          </tr>
+          <tr class="tag">
+            <td class="td">name</td>
+            <td class="td">name</td>
+            <td class="td" >name</td>
+          </tr>
+          <tr class="major">
+            <td class="td" id="6"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="7"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="8"><img width="100%" src='asset/block.png' /></td>
+          </tr>
+          <tr class="tag">
+            <td class="td"> name</td>
+            <td class="td"> name</td>
+            <td class="td"> name</td>
+          </tr>
+          <tr class="major">
+            <td class="td" id="9"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="10"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="11"><img width="100%" src='asset/block.png' /></td>
+          </tr>
+          <tr class="tag">
+            <td class="td">name</td>
+            <td class="td">name</td>
+            <td class="td">name</td>
+          </tr>
+          <tr class="major">
+            <td class="td" id="12"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="13"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="14"><img width="100%" src='asset/block.png' /></td>
+          </tr>  
+          <tr class="tag">
+            <td class="td">name</td>
+            <td class="td">name</td>
+            <td class="td">name</td>
+          </tr>
+          <tr class="options">
+            <td class="td"></td>
+            <td class="td"><img id="close" src="asset/close.png"/></td>
+            <td class="td"></td>
+          </tr>
+        </table>
+      </div>
+      <div></div>
+      <div class="modal">
+        <img id="bag_background" src="asset/bag_background.png">
+        <table id="bag">
+          <tr class="major">
+            <td class="td" id="02"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="12"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="22"><img width="100%" src='asset/block.png' /></td>
+          </tr>
+          <tr class="tag">
+            <td class="td" >name</td>
+            <td class="td">name</td>
+            <td class="td" >name</td>
+          </tr>
+          <tr class="major">
+            <td  class="td" id="3"><img width="100%" src='asset/block.png' /></td>
+            <td  class="td" id="4"><img width="100%" src='asset/block.png' /></td>
+            <td  class="td" id="5"><img width="100%" src='asset/block.png' /></td>
+          </tr>
+          <tr class="tag">
+            <td class="td">name</td>
+            <td class="td">name</td>
+            <td class="td">name</td>
+          </tr>
+          <tr class="major">
+            <td class="td" id="6"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="7"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="8"><img width="100%" src='asset/block.png' /></td>
+          </tr>
+          <tr class="tag">
+            <td class="td">name</td>
+            <td class="td">name</td>
+            <td class="td">name</td>
+          </tr>
+          <tr class="major">
+            <td class="td" id="9"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="10"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="11"><img width="100%" src='asset/block.png' /></td>
+          </tr>
+          <tr class="tag">
+            <td class="td">name</td>
+            <td class="td">name</td>
+            <td class="td">name</td>
+          </tr>
+          <tr class="major">
+            <td class="td" id="12"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="13"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="14"><img width="100%" src='asset/block.png' /></td>
+          </tr>  
+          <tr class="tag">
+            <td>name</td>
+            <td>name</td>
+            <td>name</td>
+          </tr>
+          <tr class="options">
+            <td></td>
+            <td><img id="close" src="asset/close.png"/></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
     </div>
     </body>
     <script type="text/javascript" src="house.js"></script>

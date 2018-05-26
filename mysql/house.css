@@ -3,6 +3,7 @@ body,html{
   width:100%;
   padding: 0;
   margin: 0;
+  background-color:#80B2D8;
 }
 #window{
   position:absolute;
@@ -11,9 +12,6 @@ body,html{
   width:100vw;
   height:auto;
   z-index:2;
-}
-table, tr, td{
-  border:0px;
 }
 #villa{
   position:absolute;
@@ -112,85 +110,57 @@ table, tr, td{
 #floors{
   position:relative;
 }
-div img{
+img{
   width:100%;
   height:auto;
 }
-body{
-  background-color:#80B2D8;
-}
-.house{
-  z-index:2;
+#flip{
   position:absolute;
-  bottom:0vw;
+  top:22vw;
+  left:-78vw;
+  overflow:hidden;
+  display:none;
+  width:84vw;
+  height:132vw;
+  z-index:3;
+}
+.modal{
+  width:84vw;
+  height:132vw;
+  position:relative;
+  text-align:center;
+}
+#bag_background{
+  width:100%;
+  height:auto;
+  top:0vw;
   left:0vw;
-  width:100%;
+  position:absolute;
+}
+#bag, .td{
+  border: 0.2vw solid #ffffff;
+}
+#bag{
+  position:absolute;
+  top:2vw;
+  left:17vw;
+  width:60vw;
   height:auto;
 }
-.banner{
-  position:absolute;
-  top:20%;
-  left:22%;
+.td{
+  width:17vw;
+  text-align:center;
 }
-.small_person{
-  position:absolute;
-  bottom:2%;
-  left:15%
+.major{
+  height:17vw;
 }
-.small_Taiwan{
-  position:absolute;
-  bottom:2%;
-  left:45%;
+.tag{
+  font-size:2vw;
 }
-.small_map{
-  position:absolute;
-  bottom:2%;
-  left:70%;
+.options{
+  height:1.5vw;
 }
-.your_head{
-  position:absolute;
-  top:3%;
-  left:3%;
-}
-.beside_head{
-  position:absolute;
-  top:5.5%;
-  left:7%;
-}
-.level_line{
-  position:absolute;
-  top:10%;
-  left:17%;
-}
-.box{
-  position:absolute;
-  top:5%;
-  right:10%;
-}
-.cloud{
-  position:absolute;
-  top:15%;
-  right:0%;
-}
-.cloud2{
-  position:absolute;
-  top:20%;
-  left:0%;
-}
-.entrance{       
-  position:absolute;
-  top:67.5%;
-  left:46.5%;
-  width:7.5%;
-  height:7.5%;
-}
-@media only screen and (min-height:1800px){
-  .entrance{
-    top:71%;
-  }
-}
-@media only screen and (min-height:2000px){
-  .entrance{
-    top:73%;
-  }
+#close{
+  width:10vw;
+  height:auto;
 }
