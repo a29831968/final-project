@@ -1,12 +1,9 @@
 $(document).ready(function()
     {
-       $('.entrance').click(function()
-          {
-            window.location.assign("./letter/letter1.html");            
-
-
-
-          });
-
-
+       $('.entrance').click(function(){
+          window.location.assign("./letter/letter1.html");
+       });
+       $(".box").click(function(){
+         $("#chgicon").attr("src","picture/box_open.png");
+       });
     });
