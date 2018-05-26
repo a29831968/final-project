@@ -1,6 +1,6 @@
 $(document).ready(function()
     {
-       $('.entrance').click(function()
+       $('.entrance').click(function()     //switch the page
           {
             $('.switchscreen').animate(
                 {
@@ -15,4 +15,7 @@ $(document).ready(function()
                  window.location.assign("./letter/letter1.html"); 
                 });
           });
+           $(".box").click(function(){      //the animate of open the box
+         $("#chgicon").attr("src","picture/box_open.png");
+       });
     });
