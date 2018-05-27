@@ -1,0 +1,183 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8"></meta>
+    <link rel="stylesheet" type="text/css" href="house.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- turn.js -->
+    <script type="text/javascript" src="turn.js"></script>
+    <title>house</title>
+  </head>
+  <body>
+    <button style="height:15vw;width:26vw" id="testbtn">test_bag</button>
+    <div id="window"><img src="picture/window"></div>
+    <table id="villa">
+      <tr>
+        <td>
+          <div class="roof">
+            <div id="block20"><img src="picture/roof"></div>
+            <div id="roofclick"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="secondfloor">
+            <img id="floors" src="picture/floors">
+            <div id="block1"></div>
+            <div id="block2"></div>
+            <div id="block3"></div>
+            <div id="block4"></div>
+            <div id="block5"></div>
+            <div id="block6"></div>
+            <div id="block7"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="firstfloor">
+            <img src="picture/firstfloor">
+            <div id="block8"></div>
+            <div id="block9"></div>
+            <div id="block10"></div>
+            <div id="block11"></div>
+            <div id="block12"></div>
+            <div id="block13"></div>
+            <div id="block14"></div>
+            <div id="block15"></div>
+            <div id="block16"></div>
+            <div id="block17"></div>
+            <div id="block18"></div>
+            <div id="block19"></div>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div id="flip">
+      <div class="modal">
+        <img id="bag_background" src="asset/bag_background.png">
+        
+        <table id="bag">
+          <tr class="major">
+            <td class="td" id="0"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="1"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="2"><img width="100%" src='asset/block.png' /></td>
+          </tr>
+          <tr class="tag">
+            <td class="td">name</td>
+            <td class="td">name</td>
+            <td class="td">name</td>
+          </tr>
+          <tr class="major">
+            <td class="td" id="3"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="4"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="5"><img width="100%" src='asset/block.png' /></td>
+          </tr>
+          <tr class="tag">
+            <td class="td">name</td>
+            <td class="td">name</td>
+            <td class="td" >name</td>
+          </tr>
+          <tr class="major">
+            <td class="td" id="6"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="7"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="8"><img width="100%" src='asset/block.png' /></td>
+          </tr>
+          <tr class="tag">
+            <td class="td"> name</td>
+            <td class="td"> name</td>
+            <td class="td"> name</td>
+          </tr>
+          <tr class="major">
+            <td class="td" id="9"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="10"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="11"><img width="100%" src='asset/block.png' /></td>
+          </tr>
+          <tr class="tag">
+            <td class="td">name</td>
+            <td class="td">name</td>
+            <td class="td">name</td>
+          </tr>
+          <tr class="major">
+            <td class="td" id="12"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="13"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="14"><img width="100%" src='asset/block.png' /></td>
+          </tr>  
+          <tr class="tag">
+            <td class="td">name</td>
+            <td class="td">name</td>
+            <td class="td">name</td>
+          </tr>
+          <tr class="options">
+            <td class="td"></td>
+            <td class="td"><img id="close" src="asset/close.png"/></td>
+            <td class="td"></td>
+          </tr>
+        </table>
+      </div>
+      <div></div>
+      <div class="modal">
+        <img id="bag_background" src="asset/bag_background.png">
+        <table id="bag">
+          <tr class="major">
+            <td class="td" id="02"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="12"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="22"><img width="100%" src='asset/block.png' /></td>
+          </tr>
+          <tr class="tag">
+            <td class="td" >name</td>
+            <td class="td">name</td>
+            <td class="td" >name</td>
+          </tr>
+          <tr class="major">
+            <td  class="td" id="3"><img width="100%" src='asset/block.png' /></td>
+            <td  class="td" id="4"><img width="100%" src='asset/block.png' /></td>
+            <td  class="td" id="5"><img width="100%" src='asset/block.png' /></td>
+          </tr>
+          <tr class="tag">
+            <td class="td">name</td>
+            <td class="td">name</td>
+            <td class="td">name</td>
+          </tr>
+          <tr class="major">
+            <td class="td" id="6"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="7"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="8"><img width="100%" src='asset/block.png' /></td>
+          </tr>
+          <tr class="tag">
+            <td class="td">name</td>
+            <td class="td">name</td>
+            <td class="td">name</td>
+          </tr>
+          <tr class="major">
+            <td class="td" id="9"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="10"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="11"><img width="100%" src='asset/block.png' /></td>
+          </tr>
+          <tr class="tag">
+            <td class="td">name</td>
+            <td class="td">name</td>
+            <td class="td">name</td>
+          </tr>
+          <tr class="major">
+            <td class="td" id="12"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="13"><img width="100%" src='asset/block.png' /></td>
+            <td class="td" id="14"><img width="100%" src='asset/block.png' /></td>
+          </tr>  
+          <tr class="tag">
+            <td>name</td>
+            <td>name</td>
+            <td>name</td>
+          </tr>
+          <tr class="options">
+            <td></td>
+            <td><img id="close" src="asset/close.png"/></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    </body>
+    <script type="text/javascript" src="house.js"></script>
+  </html>
