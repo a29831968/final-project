@@ -150,6 +150,66 @@ body
   top:64%;
   
 }
+.bar1_text
+{
+  position:absolute; 
+  left:8%; 
+  top:27%; 
+  color:#fff; 
+  font-weight:bold;
+  font-size:30px;
+}
+.bar1_p3
+{
+  position:absolute; 
+  left:8%; 
+  top:60%; 
+}
+.bar1_time
+{
+  position:absolute; 
+  left:15%; 
+  top:60%;
+  color:#fff; 
+  font-weight:bold;
+  font-size:20px;
+
+}
+.bar1_p1
+{
+  position:absolute; 
+  left:50%; 
+  top:60%; 
+ }
+.bar1_message
+{
+  position:absolute; 
+  left:55%; 
+  top:60%; 
+  color:#fff; 
+  font-weight:bold;
+  font-size:20px;
+}
+.bar1_p2
+{
+  position:absolute; 
+  left:65%; 
+  top:60%; 
+ }
+.bar1_heart
+{
+  position:absolute; 
+  left:68%; 
+  top:60%; 
+  color:#fff; 
+  font-weight:bold;
+  font-size:20px;
+}
+
+
+
+
+
 
 
 
