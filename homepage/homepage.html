@@ -4,56 +4,31 @@
 <meta charset="utf-8"/>
 <link rel="stylesheet" type="text/css" href="homepage.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+<script src="homepage.js"></script>
 <script>
 
 var x=0;
 $(document).ready(function(){
 	$("#friends").click(function(){
 		if(x==0){
-			$("#scroll").animate({opacity:'1'});
+			$("#friend_list").animate({opacity:'1'});
 			x++;
 		}
 		else{
-			$("#scroll").animate({opacity:'0'});
+			$("#friend_list").animate({opacity:'0'});
 			x--;
 		}
-		console.log("click");
+		console.log(x);
 });
 });
 </script>
 </head>
 <body>
-<div id="scroll">
-	<div class="container">
-		<img src="assets/icon/p1.png"/>
-	</div>
-	<div class="container">
-		<img src="assets/icon/p2.png"/>
-	</div>
-	<div class="container">
-		<img src="assets/icon/p3.png"/>
-	</div>
-	<div class="container">
-		<img src="assets/icon/p3.png"/>
-	</div>
-	<div class="container">
-		<img src="assets/icon/p3.png"/>
-	</div>
-	<div class="container">
-		<img src="assets/icon/p3.png"/>
-	</div>
-	<div class="container">
-		<img src="assets/icon/p3.png"/>
-	</div>
-	<div class="container">
-		<img src="assets/icon/p3.png"/>
-	</div>
-</div>
+<div id="friend_list"></div>
 <div class="banner" id="upper_banner">
 	
 	<img id="friends" src="assets/icon/01.png"/>
-	<img id="logo" src="assets/icon/LOGOicon.png"/>
+	<img id="logo_h" src="assets/icon/LOGOicon.png"/>
 	<img id="logout" src="assets/icon/02.png"/>
 </div>
 <div id="map_bg">
@@ -66,7 +41,8 @@ $(document).ready(function(){
 <img id="map" src="assets/icon/05.png"/>
 
 </div>
-
+<button id="tainan_btn"/>
+<button id="taipei_btn"/>
 
 
 

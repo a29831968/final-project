@@ -3,19 +3,24 @@
   <head>
     <meta charset="utf-8"></meta>
     <link rel="stylesheet" type="text/css" href="house.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <!-- turn.js -->
     <script type="text/javascript" src="turn.js"></script>
     <title>house</title>
   </head>
   <body>
+    <div class="information"></div>
     <button style="height:15vw;width:26vw" id="testbtn">test_bag</button>
-    <div id="window"><img src="picture/window"></div>
+    <div id="window"><img src='picture/window.png'></div>
+    
+    <div id="block11"></div>
+    <div id="block14"></div>
+
     <table id="villa">
       <tr>
         <td>
           <div class="roof">
-            <div id="block20"><img src="picture/roof"></div>
+            <div id="block20"><img src="picture/roof.png"></div>
             <div id="roofclick"></div>
           </div>
         </td>
@@ -23,7 +28,7 @@
       <tr>
         <td>
           <div class="secondfloor">
-            <img id="floors" src="picture/floors">
+            <img id="floors" src="picture/floors.png">
             <div id="block1"></div>
             <div id="block2"></div>
             <div id="block3"></div>
@@ -37,14 +42,12 @@
       <tr>
         <td>
           <div class="firstfloor">
-            <img src="picture/firstfloor">
+            <img src="picture/firstfloor.png">
             <div id="block8"></div>
             <div id="block9"></div>
             <div id="block10"></div>
-            <div id="block11"></div>
             <div id="block12"></div>
             <div id="block13"></div>
-            <div id="block14"></div>
             <div id="block15"></div>
             <div id="block16"></div>
             <div id="block17"></div>
@@ -178,6 +181,7 @@
         </table>
       </div>
     </div>
+    <div id="mask"></div>
     </body>
     <script type="text/javascript" src="house.js"></script>
   </html>
