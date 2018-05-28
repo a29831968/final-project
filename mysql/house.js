@@ -14,18 +14,6 @@ $(document).ready(function(){
     success: function(data){
       buildings_array=data;
       setBuildings(buildings_array);
-      /*
-      for(var i=0; i<data.length; i++){
-        if(data[i]!=null){
-          console.log((i+1)+": "+data[i]);
-          buildings= "buildings/"+data[i]+".png";
-          img="<img width='100%' src='"+buildings+"'/>";
-          $("#block"+(i+1)).html(img);
-          $("#block"+(i+1)).css("background-color","rgb(255, 255, 255, 0)");
-        }
-        $('#block' +(i+1)).click( createCallback( (i+1), data[i] ) );
-      }
-      */
     }
   })
   // .ajax get objects
@@ -40,15 +28,6 @@ $(document).ready(function(){
       console.log("final: "+data);
       objects_array=data;
       setobjects(objects_array);
-      /*
-      for(var i=0; i<data.length; i++){
-        var object= "objects/"+data[i]+".png";
-        console.log(object);
-        img="<img width='100%' src='"+object+"'/>";
-        $("#"+i).html(img);
-        console.log(data[i]);
-      }
-      */
     }
   })
   $("#testbtn").click(function(){
@@ -60,6 +39,11 @@ $(document).ready(function(){
   //flip close
   $("#close").click(function(){
     $("#flip").css({display:"none"});
+    // try solve bugs
+    for(var x=0; x<15; x++){
+      $("#"+x).unbind();
+    }
+    setBuildings(buildings_array);
   })
 
   $("#flip").turn({
@@ -77,6 +61,7 @@ function setBuildings(build){
         $("#block"+(i+1)).html(img);
         $("#block"+(i+1)).css("background-color","rgb(255, 255, 255, 0)");
       }
+      $('#block' +(i+1)).unbind();
       $('#block' +(i+1)).click( createCallback( (i+1), build[i] ) );
     }
 }
@@ -89,7 +74,7 @@ function setobjects(obj){
       $("#0").html(img);
       console.log(obj[i]);
     }
-    for(var i=0; i<obj.length; i++){
+    for(var i=0; i<=25; i++){
       if(obj[i]!=null){
         var object= "objects/"+obj[i]+".png";
         console.log(object);
@@ -122,7 +107,7 @@ function showInfo(x){
 }
 function createCallback( i , pic){
   return function(){
-    console.log(i-1);
+    //alert(i);
     console.log("buildings:"+ pic);
       if(pic==null){
         $("#flip").css({display:"block"});

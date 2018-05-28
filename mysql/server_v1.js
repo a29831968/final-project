@@ -52,10 +52,15 @@ con.connect(function(err){
   // retreive data from table: objects
   con.query("SELECT * FROM objects WHERE name = ?",user_name, function(err, result){
     if(err) throw err;
+    var count=0;
     var number=result[0].amount;
     for(var i=1; i<=25;i++){
       if(result[0][i]!=null){
+        count=count+1;
         objs_info.push(result[0][i]);
+      }
+      if(count==number){
+        break;
       }
     }
   })
@@ -92,7 +97,6 @@ function updateBuildingsAndObjects(req, res){
   console.log("j:"+j);
   con.query( "UPDATE buildings SET ?? =? WHERE name = ?",[i, o, user_name], function(err, result){
     if(err) throw err;
-    console.log("first con.query");
     // retrieve data from table: buildings
     buildings_info=[];
     console.log("empty bu_info:"+ buildings_info);
@@ -109,13 +113,19 @@ function updateBuildingsAndObjects(req, res){
         console.log("step2");
         var number=result[0].amount;
         var temp=0;
+        var stop=parseInt(x)+1;
         for(var g=1; g<=25;g++){
           if(result[0][g]!=null){
             temp=temp+1;
-            if(temp==(x+1)){
-              con.query("UPDATE objects SET ?? = ? WHERE name = ?",[temp, null, user_name], function(error, result){
+            console.log("g:"+g);
+            console.log("x+1="+stop);
+            if(temp==stop){
+              
+              console.log("temp:"+temp);
+              con.query("UPDATE objects SET ?? = NULL WHERE name = ?",[g, user_name], function(error, result){
                 if (err) throw err;
               });
+              break;
             }
           }
         }
@@ -124,19 +134,33 @@ function updateBuildingsAndObjects(req, res){
           console.log("step3");
           if (err) throw err;
         });
+        objs_info=[];
+        con.query("SELECT * FROM objects WHERE name = ?",user_name, function(err, result){
+          if(err) throw err;
+          var number=result[0].amount;
+          var count=0;
+          for(var i=1; i<=25;i++){
+            console.log("last info");
+            if(result[0][i]!=null){
+              count=count+1;
+              objs_info.push(result[0][i]);
+            }
+            if(count==number){
+              break;
+            }
+          }
+        })
       });
-      objs_info=[];
-      con.query("SELECT * FROM objects WHERE name = ?",user_name, function(err, result){
-        if(err) throw err;
-        var number=result[0].amount;
-        for(var i=1; i<=number;i++){
-          console.log("last info");
-          objs_info.push(result[0][i]);
-        }
-      })
     })
   });
+  setTimeout(function() {
+    console.log("changed buildings_info:"+buildings_info);
+    console.log("changed obj_info:"+objs_info);
+    return res.send({buildings_info:buildings_info, objs_info:objs_info});
+  }, 300);
+  /*
   console.log("changed buildings_info:"+buildings_info);
   console.log("changed obj_info:"+objs_info);
-  res.send({buildings_info:buildings_info, objs_info:objs_info});
+  return res.send({buildings_info:buildings_info, objs_info:objs_info});
+  */
 }
