@@ -7,4 +7,8 @@ $(document).ready(function()
       $('#btn').click(function()
           {  console.log('hello world');
           });
+      $('.add_letter').click(function()
+      {
+        window.location.assign('./photo_letter.html');
+      });
     });  
