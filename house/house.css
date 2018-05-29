@@ -94,6 +94,11 @@ body{
   left:13.5%;
   display:inline-block;
 }
+.profile_top{
+  position:absolute;
+  top:2%;
+  left:5%;
+}
 .bike{
   position:absolute;
   bottom:8.5%;
