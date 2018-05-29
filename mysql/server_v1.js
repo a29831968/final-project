@@ -164,3 +164,22 @@ function updateBuildingsAndObjects(req, res){
   return res.send({buildings_info:buildings_info, objs_info:objs_info});
   */
 }
+
+//insert user data from homepage
+app.get("/ajax_data", function(req, res) {
+var user_name=req.query.user_name;
+var user_id=req.query.user_id;
+var user_pic=req.query.user_pic;
+
+var user_data = [user_id, user_name, 0, 1 ];
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+  var sql = "INSERT IGNORE INTO users (id, name, exp, lv) VALUES ?";
+  con.query(sql, user_data, function (err, result) {
+    if (err) throw err;
+    console.log("1 record inserted:" + user_name);
+  });
+});
+}) 
