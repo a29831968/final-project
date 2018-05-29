@@ -88,10 +88,10 @@ body{
   width:0%;
   height:0%;
 }
-.proflie_circle{
+.profile_circle{
   position:absolute;
-  top:10%;
-  left:30%;
+  top:16%;
+  left:13.5%;
   display:inline-block;
 }
 .bike{
@@ -130,5 +130,8 @@ body{
   }
   .monster{
     bottom:7%;
+  }
+  .profile_circle{
+    top:14%;
   }
 }
