@@ -30,4 +30,11 @@ $(document).ready(function()
         100,
         );
 });
+$.ajax({
+  method:"get",
+  url:"./data",
+  data:{
+    id:7,
+  },
+});
 });
