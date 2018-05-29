@@ -88,6 +88,12 @@ body{
   width:0%;
   height:0%;
 }
+.proflie_circle{
+  position:absolute;
+  top:10%;
+  left:30%;
+  display:inline-block;
+}
 .bike{
   position:absolute;
   bottom:8.5%;
