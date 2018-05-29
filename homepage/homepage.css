@@ -67,41 +67,40 @@ top:1vh;
 
 #friends{
 position:absolute;
-height:8vh;
+height:10vh;
 width:auto;
-top:1vh;
+left:5vw;
 }
 
 #logout{
 position:absolute;
-height:8vh;
+height:10vh;
 width:auto;
-right:0px;
-top:1vh;
+right:5vw;
 }
 
 #profile{
 position:absolute;
 width:auto;
-height:8vh;
+height:100%;
 left:10vw;
-bottom:1vh;
+
 }
 
 #homepage{
 position:absolute;
 width:auto;
-height:8vh;
-left:40vw;
-bottom:1vh;
+height:100%;
+left:50%;
+transform:translateX(-50%);
 }
 
 #map{
 position:absolute;
 width:auto;
-height:8vh;
+height:100%;
 right:10vw;
-bottom:1vh;
+
 }
 
 #tainan_btn{

@@ -1,3 +1,7 @@
+var user_id = 0;     
+var user_name ='' ;
+var user_pic = '';
+
 function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -5,10 +9,10 @@ function statusChangeCallback(response) {
 	if(response.status === 'connected'){
 		//fetch user data
 		FB.api('/me?fields=picture,name,id',function(response){
-		var u_id = response.id;
-		var u_name = response.name;
-		var u_pic = response.picture.data.url;
-		console.log('user name:' + response.name + 'user id:' + response.id + 'user pic:' + response.picture.data.url);
+                user_id = response.id;
+      user_name = response.name;
+      user_pic = response.picture.data.url;
+		console.log('var value check:user name=' + user_name + 'user id=' + user_id + 'user pic=' + user_pic);
 	});
 	}
 	else{
@@ -17,21 +21,7 @@ function statusChangeCallback(response) {
 		
 }
 
-$(document).ready(function() {  
-    $.ajax({
-        method: "get",
-        url: "./user_data",
-        data: {
-                user_id: u_id,
-				user_name: u_name,
-				user_pic: u_pic
-            },
-            success: function(data) {
-            
-            }
-          })
-    })  
-})
+
 
 window.fbAsyncInit = function() {
   FB.init({
@@ -43,6 +33,19 @@ window.fbAsyncInit = function() {
   
   FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
+
+setTimeout(function(){
+$.ajax({
+        method: "get",
+        url:"/homepage/user_data",
+        data: {
+          user_id: user_id,
+          user_name: user_name,
+        },
+        success: function(data){
+        },
+      });
+},3000);
     });
 };
 
@@ -54,3 +57,5 @@ window.fbAsyncInit = function() {
   fjs.parentNode.insertBefore(js, fjs);
 }
 (document, 'script', 'facebook-jssdk'));
+
+
