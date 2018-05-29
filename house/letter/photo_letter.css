@@ -1,6 +1,30 @@
-
-
-
+img
+{
+  width:100%;
+  height:auto;
+}
+body
+{
+  margin:0px;
+  overflow:hidden;
+}
+.full_container
+{
+  position:absolute;
+  width:100%;
+  height:100%;
+}
 .top_bar
 {
-  positionabsolute;
+  position:relative;
+  top:0px;
+  width:100%;
+}
+.image_upload
+{
+  position:relative;
+  top:0px;
+  width:100%;
+}
+
+
