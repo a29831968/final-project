@@ -90,14 +90,24 @@ body{
 }
 .profile_circle{
   position:absolute;
-  top:16%;
-  left:13.5%;
+  top:17%;
+  left:11%;
   display:inline-block;
 }
 .profile_top{
   position:absolute;
   top:2%;
-  left:5%;
+  left:0%;
+}
+.profile_arrow{
+  position:absolute;
+  top:4%;
+  left:8%;
+}
+.profile_bottom{
+  position:absolute;
+  bottom:0%;
+  left:0%;
 }
 .bike{
   position:absolute;

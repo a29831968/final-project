@@ -5,10 +5,11 @@ function statusChangeCallback(response) {
 	if(response.status === 'connected'){
 		//fetch user data
 		FB.api('/me?fields=picture,name,id',function(response){
-		var u_id = response.id;
-		var u_name = response.name;
-		var u_pic = response.picture.data.url;
-		console.log('user name:' + response.name + 'user id:' + response.id + 'user pic:' + response.picture.data.url);
+		 var user_id = response.id;
+      var user_name = response.name;
+      var user_pic = response.picture.data.url;
+		console.log('var value check:user name=' + user_name + 'user id=' + user_id + 'user pic=' + user_pic);
+
 	});
 	}
 	else{
@@ -20,11 +21,11 @@ function statusChangeCallback(response) {
 $(document).ready(function() {  
     $.ajax({
         method: "get",
-        url: "./user_data",
+        url: "user_data",
         data: {
-                user_id: u_id,
-				user_name: u_name,
-				user_pic: u_pic
+                user_id: user_id,
+				user_name: user_name,
+				user_pic: user_pic,
             },
             success: function(data) {
             
