@@ -1,14 +1,3 @@
-
-/*var mysql = require('mysql');
-
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "uidd2018_groupG",
-  password: "webGGdata",
-  database: " uidd2018_groupG"
-});
-*/
-
 function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -16,6 +5,9 @@ function statusChangeCallback(response) {
 	if(response.status === 'connected'){
 		//fetch user data
 		FB.api('/me?fields=picture,name,id',function(response){
+		var u_id = response.id;
+		var u_name = response.name;
+		var u_pic = response.picture.data.url;
 		console.log('user name:' + response.name + 'user id:' + response.id + 'user pic:' + response.picture.data.url);
 	});
 	}
@@ -24,6 +16,22 @@ function statusChangeCallback(response) {
 	}
 		
 }
+
+$(document).ready(function() {  
+    $.ajax({
+        method: "get",
+        url: "./user_data",
+        data: {
+                user_id: u_id,
+				user_name: u_name,
+				user_pic: u_pic
+            },
+            success: function(data) {
+            
+            }
+          })
+    })  
+})
 
 window.fbAsyncInit = function() {
   FB.init({
@@ -46,38 +54,3 @@ window.fbAsyncInit = function() {
   fjs.parentNode.insertBefore(js, fjs);
 }
 (document, 'script', 'facebook-jssdk'));
-
-
-/*function dataAPI(){
-	console.log('dataAPI() called');
-	FB.api('/me?fields=picture,name',function(response){
-		console.log(response);
-		var user_id = response.id;
-		var user_name = response.name;
-		var user_pic = response.pictue.data.url;
-	});
-	
-	con.connect(function(err) {
-		if (err) throw err;
-		con.query("SELECT * FROM users WHERE id = user_id", function (err, result) {
-			if (err){
-				data_insert();
-				throw err;
-			}
-			console.log(result);
-		});
-	});
-}
-
-function data_insert(){
-	con.connect(function(err) {
-		if (err) throw err;
-		console.log('Connected!');
-		var sql = "INSERT INTO users (id, name, lv, exp, picture) VALUES (user_id, user_name, 0, 0, user_pic)";
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log('inserted');
-  });
-});
-};
-*/
