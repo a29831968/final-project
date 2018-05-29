@@ -2,6 +2,7 @@
 var buildings_array=[];
 var objects_array=[];
 $(document).ready(function(){
+  
   console.log("get ready");
   console.log("get buildings");
   // .ajax get building condition
@@ -53,7 +54,8 @@ $(document).ready(function(){
 });
 // function set building conditions
 function setBuildings(build){
-    for(var i=0; i<build.length; i++){
+  console.log("setBuildings");
+    for(var i=0; i<20; i++){
       if(build[i]!=null){
         console.log((i+1)+": "+build[i]);
         buildings= "buildings/"+build[i]+".png";
@@ -62,11 +64,13 @@ function setBuildings(build){
         $("#block"+(i+1)).css("background-color","rgb(255, 255, 255, 0)");
       }
       $('#block' +(i+1)).unbind();
+      console.log("set buildings click:"+ (i+1));
       $('#block' +(i+1)).click( createCallback( (i+1), build[i] ) );
     }
 }
 // function set objects
 function setobjects(obj){
+  console.log("setobjects");
     if(obj.length==0){
       var object= "asset/block.png";
       console.log(object);
@@ -77,13 +81,13 @@ function setobjects(obj){
     for(var i=0; i<=25; i++){
       if(obj[i]!=null){
         var object= "objects/"+obj[i]+".png";
-        console.log(object);
+        //console.log(object);
         img="<img width='100%' src='"+object+"'/>";
         $("#"+i).html(img);
         console.log(obj[i]);
       }else{
         var object= "asset/block.png";
-        console.log(object);
+        //console.log(object);
         img="<img width='100%' src='"+object+"'/>";
         $("#"+i).html(img);
         console.log(obj[i]);
