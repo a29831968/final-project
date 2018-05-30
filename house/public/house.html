@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8"></meta>
+    <link rel="stylesheet" type="text/css" href="house.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.11.1.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $(".profile_arrow").click(function(){
+          $(".change_to_profile").hide();
+        });
+        $(".small_person").click(function(){
+          $(".change_to_profile").show();
+        });
+      });
+    </script>
+    <title>house</title>
+  </head>
+  <body>
+    <div class="house">
+      <img src="picture/house.png">
+    </div>
+    <div class="banner">
+    </div>
+    <div class="small_person">
+      <img src="picture/small_person.png">
+    </div>
+    <div class="small_Taiwan">
+      <img src="picture/small_Taiwan.png">
+    </div>
+    <div class="small_map" style="cursor:pointer;" onclick="location.href='https://www.google.com.tw/maps/@?hl=zh-TW';">
+      <img src="picture/small_map.png">
+    </div>
+    <div class="your_head">
+      <img src="picture/head.png">
+    </div>
+    <div class="beside_head">
+      <img src="picture/beside_head.png">
+    </div>
+    <div class="level_line">
+      <img src="picture/level_line.png">
+    </div>
+    <div class="box">
+      <img src="picture/box.png" id="chgicon">
+    </div>
+    <div class="cloud">
+      <img src="picture/cloud.png">
+    </div>
+    <div class="cloud2">
+      <img src="picture/cloud2.png">
+    </div>
+    <div class="entrance">
+      <img src="picture/note.png">
+    </div>
+    <div class="bike">
+      <img src="picture/bike.png">
+    </div>
+    <div class="monster">
+      <img src="picture/monster.png">
+    </div>
+    </body>
+    <div class="switchscreen">
+      <img src="./picture/8.png">
+    </div>
+    <div class="change_to_profile">
+      <img src="profile_pic/background.png">
+      <div class="profile_circle">
+        <img src="profile_pic/circle.png">
+      </div>
+      <div class="profile_top">
+        <img src="profile_pic/top_word.png">
+      </div>
+      <div class="profile_arrow">
+        <img src="profile_pic/arrow.png">
+      </div>
+      <div class="profile_bottom">
+        <img src="profile_pic/bottom.png">
+      </div>
+    </div>
+    <script type="text/javascript" src="house.js"></script>
+  </html>

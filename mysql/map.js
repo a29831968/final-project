@@ -1,40 +1,35 @@
+var map;
+// set the objects what user did not get yet
+var mapObjsList=[];
+
+// set the user location
+// and set the location bound
+var currentCircle;
+var currentLocation;
+// store the object marker into list
+var objMarkerList=[];
+
+// 1km
+const distance = 2000;
 function initMap() {
   console.log("initMap");
   // initialize the map
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 13,
-    center: {lat: 22.999728, lng: 120.227028}});
-  
-  if (navigator.geolocation) {
-    getGeolocation().then(pos => {
-      map.setCenter(pos)
-    }).catch(msg => {
-      console.log(msg)
-    })
-  } else{
-    consol.log('Geolocation is not supported by your browser')
-  }
-
-  // tracking the user location
-  /*
-  var infoWindow = new google.maps.InfoWindow({map: map});
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
-      map.setCenter(pos);
-    }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
-    });
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
-  */
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 14,
+    center: {lat: 22.999728, lng: 120.227028}
+  });
+ 
+  $.ajax({
+    method:'get',
+    url: './showObjs',
+    data:{
+    },
+    success: function(data){
+      mapObjsList=data.mapObjs;
+      setObjs(mapObjsList, map);
+    }
+  })
+  getDeviceLocation();
 }
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
@@ -42,34 +37,159 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       'Error: The Geolocation service failed.' :
       'Error: Your browser doesn\'t support geolocation.');
 }
-/*
-function handlePermission() {
-  navigator.permissions.query({name:'geolocation'}).then(function(result) {
-    if (result.state == 'granted') {
-      report(result.state);
-      geoBtn.style.display = 'none';
-    } else if (result.state == 'prompt') {
-      report(result.state);
-      geoBtn.style.display = 'none';
-      navigator.geolocation.getCurrentPosition(revealPosition,positionDenied,geoSettings);
-    } else if (result.state == 'denied') {
-      report(result.state);
-      geoBtn.style.display = 'inline';
+
+// set objs on map
+function setObjs(mapObjsList, map){
+  var box = {
+    url: 'maps/box.png',
+    scaledSize : new google.maps.Size(20, 20),
+  };
+  objMarkerList.splice(0, objMarkerList.length);
+  for(var i=0; i<mapObjsList.length; i++){
+    if(mapObjsList[i]!=null){
+      objMarkerList.push(new google.maps.Marker({
+            position:new google.maps.LatLng(mapObjsList[i].lat, mapObjsList[i].lng),
+            icon: box,
+      }));
+      var img = mapObjsList[i].filename;
+      console.log("img:"+img);
+      objMarkerList[i].addListener('click', setClick(img));
+      objMarkerList[i].setMap(map);
+    }else{
+      objMarkerList.push(null);
     }
-    result.onchange = function() {
-      report(result.state);
-    }
-  });
+  }
 }
-*/
-let getGeolocation = () => {
-  return new Promise((resolve) =>{
-    navigator.geolocation.getCurrentPosition((position)=>{
-      pos = {
+// set click of objects
+function setClick(img){
+  return function(){
+    console.log("<img width='100%' src='info/"+img +"' />");
+    $("#info").html("<img width='100%' src='info/"+img +"' />");
+    $("#info").css({display:"block"});
+    $("#mask").css({display:"block"});
+  }
+}
+
+// close info window
+$("#mask").click(function(){
+  $("#info").css({display:"none"});
+  $("#mask").css({display:"none"});
+  $(".getButtonG").css({display:"none"});
+});
+
+// get device location
+function getDeviceLocation(){
+  //console.log("get Device location.");
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
+      };
+      if(currentLocation != null){
+        console.log("none null");
+        currentLocation.setMap(null);
+        currentLocation = new google.maps.Marker({
+          position: pos,
+          icon: 'https://maps.gstatic.com/intl/en_us/mapfiles/markers2/measle_blue.png',
+        });
+      }else{
+        console.log("null");
+        currentLocation = new google.maps.Marker({
+          position: pos,
+          title:"YOU ARE HERE",
+          icon: 'https://maps.gstatic.com/intl/en_us/mapfiles/markers2/measle_blue.png',
+        });
       }
-      resolve(pos)
+      //console.log("currentLocation:"+currentLocation);
+      // calculate the bound and set the obj get button in the information
+      distanceBound(currentLocation, objMarkerList);
+      currentLocation.setMap(map);
+      //map.setCenter(pos);
+      if(currentCircle != null){
+        currentCircle.setMap(null);
+        currentCircle = new google.maps.Circle({
+          strokeColor: '#000000',
+          strockOpacity: 0.7,
+          strokeWeight: 0.2,
+          fillColor: '#000000',
+          fillOpacity: 0.1,
+          map:map,
+          radius:distance,
+          center:pos,
+        });
+      }else{
+        currentCircle = new google.maps.Circle({
+          strokeColor: '#000000',
+          strockOpacity: 0.7,
+          strokeWeight: 0.2,
+          fillColor: '#000000',
+          fillOpacity: 0.1,
+          map:map,
+          radius:1000,
+          center:pos,
+        });
+      }
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+}
+//window.setInterval(function(){getDeviceLocation();},5000);
+
+// calculate the distance bound
+function distanceBound(current, markerList){
+  console.log("current lat,lng:"+current.position);
+  for(var i=0; i<markerList.length; i++){
+    // if obj exist on map
+    if(markerList[i]!=null){
+      var length = google.maps.geometry.spherical.computeDistanceBetween(current.position, markerList[i].position);
+      // if obj also in the bound area
+      // distance = 1000 m
+      if(length <= distance){
+        // in the bound, it will show the button(get objs)
+        //google.maps.event.removeListener(markerList[i]);
+        markerList[i].addListener('click', getObjClick((i+1), mapObjsList[i].filename));
+      }
+    }
+  }
+}
+// getObjClick()
+// set obj click
+function getObjClick(x, boxfile){
+  return function(){
+    console.log("<img width='100%' src='info/"+boxfile +"' />");
+    $("#info").html("<img width='100%' src='info/"+boxfile +"' />");
+    $("#info").css({display:"block"});
+    $("#mask").css({display:"block"});
+    $("#getButton"+x).css({display:"block"});
+    // x is the number need to put int the total
+    $("#getButton"+x).click(addTobag(x));
+  }
+}
+
+function addTobag(x){
+  return function(){
+    console.log("click get x: "+x);
+    $("#info").css({display:"none"});
+    $("#mask").css({display:"none"});
+    $(".getButtonG").css({display:"none"});
+    // database 
+    $.ajax({
+      method:'get',
+      url:'./mapObjGet',
+      data:{
+        objNumber:x,  
+      },
+      success: function(data){
+        console.log(data.mapObjs);
+        mapObjsList=data.mapObjs;
+        setObjs(mapObjsList, map);
+      }
     })
-  })
+    getDeviceLocation();
+  }
 }

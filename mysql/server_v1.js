@@ -174,3 +174,89 @@ function updateBuildingsAndObjects(req, res){
   return res.send({buildings_info:buildings_info, objs_info:objs_info});
   */
 }
+
+app.get('/showObjs', function(req, res){
+  var mapObjs=[];
+  var total=[];
+  con.query("SELECT * FROM total WHERE name = ? AND district = ?", [user_name, district],function(err, result){
+    if(err) throw err;
+    total=result[0];
+  }); 
+  con.query("SELECT * FROM map", function(err, result){
+    if(err) throw err;
+    for(var i=0;i<result.length ; i++){
+      if(total[i+1]==null){
+        mapObjs.push({filename: result[i].filename, 
+          lat:result[i].lat, lng:result[i].lng
+        })
+      }else{
+        mapObjs.push(null);
+      }
+    }
+    res.send({mapObjs:mapObjs});
+  });
+})
+
+
+// get data from maps
+app.get('/mapObjGet', function(req, res){
+  console.log("back");
+  var index_number=req.query.objNumber;
+  var overall=0;
+  con.query("SELECT * FROM total WHERE name = ? AND district = ?", [user_name, district],function(err, result){
+    if(err) throw err;
+    overall=result[0].overall+1;
+    console.log("type overall:"+ typeof(overall));
+    console.log("overall:"+overall);
+    //
+    con.query("UPDATE total SET overall = ? WHERE name = ? AND district = ?", [ overall, user_name, district],function(err, result){
+      if(err) throw err;
+      console.log("index_number:"+index_number);
+      con.query("UPDATE total SET ??  = 1 WHERE name = ? AND district = ?", [ index_number ,user_name, district],function(err, result){
+        if(err) throw err;
+        console.log("2..");
+      }); 
+    }); 
+  }); 
+  con.query("SELECT * FROM objects WHERE name = ? AND district = ?", [user_name, district],function(err, result){
+    if(err) throw err;
+    console.log("3..");
+    var amount=result[0].amount+1;
+    for (var i=1; i<=25; i++){
+      if(result[0][i]==null){
+        con.query("UPDATE objects SET ??  = ? WHERE name = ? AND district = ?", [i, index_number ,user_name, district],function(err, result){
+          if(err) throw err;
+        });
+        break;
+      }
+    }
+    con.query("UPDATE objects SET amount  = ? WHERE name = ? AND district = ?", [amount ,user_name, district],function(err, result){
+      if(err) throw err;
+    }); 
+  });
+  getObjAndTotal(req, res);
+})
+
+// get total and map
+// and send data to map.html
+function getObjAndTotal(req, res){
+  var mapObjs=[];
+  var total=[];
+  con.query("SELECT * FROM total WHERE name = ? AND district = ?", [user_name, district],function(err, result){
+    if(err) throw err;
+    total=result[0];
+  }); 
+  con.query("SELECT * FROM map", function(err, result){
+    if(err) throw err;
+    for(var i=0;i<result.length ; i++){
+      if(total[i+1]==null){
+        mapObjs.push({filename: result[i].filename, 
+          lat:result[i].lat, lng:result[i].lng
+        })
+      }else{
+        mapObjs.push(null);
+      }
+    }
+    res.send({mapObjs:mapObjs});
+  });
+}
