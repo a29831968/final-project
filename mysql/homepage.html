@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" type="text/css" href="homepage.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="homepage.js"></script>
+<script>
+
+var x=0;
+$(document).ready(function(){
+	$("#friends").click(function(){
+		if(x==0){
+			$("#friend_list").animate({opacity:'1'});
+			x++;
+		}
+		else{
+			$("#friend_list").animate({opacity:'0'});
+			x--;
+		}
+		console.log(x);
+});
+});
+</script>
+</head>
+<body>
+<div id="friend_list"></div>
+<div class="banner" id="upper_banner">
+	
+	<img id="friends" src="assets/icon/01.png"/>
+	<img id="logo_h" src="assets/icon/LOGOicon.png"/>
+	<img id="logout" src="assets/icon/02.png"/>
+</div>
+<div id="map_bg">
+	<img id="img_map" src="assets/map.gif"/>
+</div>
+<div class="banner" id="lower_banner">
+	
+<img id="profile" src="assets/icon/03.png"/>
+<img id="homepage" src="assets/icon/profile.png"/>
+<img id="map" src="assets/icon/05.png"/>
+
+</div>
+<button id="tainan_btn"/>
+<button id="taipei_btn"/>
+
+
+
+</body>
+</html>

@@ -248,7 +248,7 @@ img{
   left:46.8vw;
   width:7.5vw;
   height:12vw;
-  z-index:7;
+  z-index:1;
 }
 .switchscreen{
   position:absolute;

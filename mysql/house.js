@@ -2,6 +2,9 @@
 var buildings_array=[];
 var objects_array=[];
 $(document).ready(function(){
+  $("#taiwan").click(function(){
+    window.location.assign("./homepage.html");
+  })
   //
   $("#map").click(function(){
     window.location.assign("./map.html");
@@ -27,7 +30,8 @@ $(document).ready(function(){
               'left':'0px',
               'top':'0px',
               'width':'100vw',
-              'height':'100vh'
+              'height':'100vh',
+              'z-index':'2'
         }, 100,
         );
   });
