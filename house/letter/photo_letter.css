@@ -6,7 +6,8 @@ img
 body
 {
   margin:0px;
-  overflow:hidden;
+  overflow-y:scroll;
+  overflow-x:hidden;
 }
 .full_container
 {
@@ -24,6 +25,7 @@ body
 {
   position:relative;
   top:0px;
+  height:55%;
   width:100%;
 }
 .line
@@ -141,11 +143,17 @@ position:relative;
   width:100%;
    
 }
-input[type="submit"]
+button, html [type="button"], [type="reset"], [type="submit"]
 {
-  width=100%;
+  width:100%;
+  height:5%;
+  font-size:40px;
 }
+input[type="file"]
+{
+  display:none;
 
+}
 
 
 

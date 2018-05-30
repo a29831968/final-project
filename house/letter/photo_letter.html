@@ -17,7 +17,10 @@
     <img class="close" src="./picture1/close">  <!--close-->
     <img class="next" src="./picture1/next">
     <div class="image_upload">   <!--upload image-->
-      <img src="./picture1/new">
+     <form action="/somewhere/to/uploadi" enctype="multipart/form-data" style="margin:0px">
+      <label><img src="./picture1/new">
+        <input type="file" id="progressbarTWInput" accept="image/gif, image/jpeg, image/png"></label>
+    </form>
     </div>
     <div class="line"></div> <!--line-->
     <img src="./picture1/test"  class="head">   <!--icon-->
@@ -31,9 +34,10 @@
     <img src="./picture1/locate" class="locate">
     <img src="./picture1/date" class="date">
     <script src="./photo_letter.js"></script> 
-    <form>
+    <form style="margin:0px;">
       <textarea id="area" type="text" name="content" text-color="gray" >請輸入文字</textarea>
       <input id="submit_btn" type="submit" value="儲存">
-      </form>
+    </form>
+    <script src="./photo_letter.js"></script>
  </body>
 </html>
