@@ -12,10 +12,6 @@ $(document).ready(function()
         window.location.assign('../letter/letter1.html')
  
      });
-   $(".star1").toggle(
-  function(){$(".star1").attr("src", "./picture1/star_yellow");},
-  function(){$(".star1").attr("src", "./picture1/star_gray");
-    });
  $('.star2').click(function()    //to light the star
   {
       $('.star2').attr("src","./picture1/star_yellow");
