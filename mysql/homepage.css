@@ -104,7 +104,8 @@ right:10vw;
 }
 
 #tainan_btn{
-position:absolute;
+  font-size:2vw;
+  position:absolute;
 top:60vh;
 left:30vw;
 height:3vh;
@@ -112,6 +113,7 @@ width:10vw;
 border-color:navy;
 }
 #taipei_btn{
+font-size:2vw;
 position:absolute;
 top:23vh;
 left:54vw;
