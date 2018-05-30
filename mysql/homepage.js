@@ -41,10 +41,11 @@ window.fbAsyncInit = function() {
 setTimeout(function(){
 $.ajax({
         method: "get",
-        url:"/homepage/user_data",
+        url:"./user_data",
         data: {
           user_id: user_id,
           user_name: user_name,
+          user_pic: user_pic,
         },
         success: function(data){
         },

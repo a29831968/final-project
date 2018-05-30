@@ -29,28 +29,21 @@ var district;
 district="tainan";
 // user_name default set: John
 var user_name;
-user_name="John";
+user_name="";
 
 
 var row;
 con.connect(function(err){
   if(err) throw err;
   console.log("connected!");
-  con.query("SELECT * FROM users", function (err, result, fields) {
-    if (err) throw err;
-    row=result;
-    //console.log(result);
-  });
-  con.query("SELECT * FROM users WHERE name='Annie'", function(err, result){
-    if (err) throw err;
-    //console.log(result);
-  });
 });
 
 
 var buildings_info=[];
 var objs_info=[];
-con.connect(function(err){
+// retrieve data from table:objects and buildings
+function getObjs_Buildings(){
+
   // retrieve data from table: buildings
   con.query("SELECT * FROM buildings WHERE name = ?",user_name, function(err, result){
     if(err) throw err;
@@ -74,7 +67,49 @@ con.connect(function(err){
       }
     }
   })
-})
+}
+// insert information when login
+app.get("/user_data", function(req, res) {
+  var uid = req.query.user_id;
+  var uname = req.query.user_name;
+  var url=req.query.user_pic;
+  user_name=String(uname);
+  console.log("user_name: "+user_name);
+  console.log("uid: "+uid);
+  console.log("url: "+url)
+  con.query("SELECT * FROM test WHERE name = ? AND id = ?",[user_name, uid], function(err, result){
+    if(err) throw err;
+    console.log("length:"+result.length);
+    if(result.length != 0){
+    }else{
+      console.log("new user: "+ username); 
+      var sql = "INSERT IGNORE INTO test(id, name, exp, lv, url) VALUES ?";
+      var values = [
+        [parseInt(uid), uname, 0, 1, url],
+      ];
+      var na={name: user_name};
+      console.log(user_name);
+      con.query(sql, [values], function(err,result){
+        if(err) throw err;
+        console.log("username: " + uname + " inserted");
+      });
+      var sql = "INSERT INTO total SET ?";
+      con.query(sql, na, function(err,result){
+        if(err) throw err;
+      })
+      var sql = "INSERT  INTO buildings SET ?";
+      con.query(sql, na, function(err,result){
+        if(err) throw err;
+      })
+      var sql = "INSERT INTO objects SET ?";
+      con.query(sql, na, function(err,result){
+        if(err) throw err;
+      })
+      setTimeout(function(){getObjs_Buildings();},10000);
+    }
+  })
+});
+
 app.get("/buildings", function(req, res) {
   console.log("send:"+buildings_info);
   res.send(buildings_info);
