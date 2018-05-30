@@ -6,6 +6,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <!-- turn.js -->
     <script type="text/javascript" src="turn.js"></script>
+    <script>
+      $(document).ready(function(){
+        $(".profile_arrow").click(function(){
+          $(".change_to_profile").hide();
+        });
+        $(".small_person").click(function(){
+          $(".change_to_profile").show();
+        });
+      });
+    </script>
     <title>house</title>
   </head>
   <body>
@@ -191,6 +201,22 @@
     <div id="map"><img width="100%" src="asset/small_map.png"/></div>
   
     <div class="entrance"><img width="100%" src="asset/note.png"/></div>
+    <div class="switchscreen"><img src="./picture/8.png"></div>
+    <div class="change_to_profile">
+      <img src="profile_pic/background.png">
+      <div class="profile_circle">
+        <img src="profile_pic/circle.png">
+      </div>
+      <div class="profile_top">
+        <img src="profile_pic/top_word.png">
+      </div>
+      <div class="profile_arrow">
+        <img src="profile_pic/arrow.png">
+      </div>
+      <div class="profile_bottom">
+        <img src="profile_pic/bottom.png">
+      </div>
+    </div>
     </body>
     <script type="text/javascript" src="house.js"></script>
   </html>

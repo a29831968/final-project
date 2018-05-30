@@ -1,0 +1,62 @@
+img
+{
+  width:100%;
+  height:auto;
+}
+body
+{
+  margin:0px;
+  overflow:hidden;
+}
+.background
+{
+  width:100%;
+  height:100%;
+}
+#back
+ {
+   height:100%;
+   width:100%;
+ }
+.container
+{
+  position:absolute;
+  top:0px;
+}
+ .container_up_bar
+ {
+  position:relative;
+   top:0px;
+
+ }
+.arrow
+{
+  position:absolute;
+  top:4%;
+  left:5%;
+  z-index:1;
+}
+.container_picture_anping
+{
+ position:relative;
+ top:30px;
+
+}
+iframe{
+  width:100%;
+  height:47%;
+  position:relative;
+  top:30px;
+}
+.add_letter
+{
+  position:absolute;
+  left:5%;
+  bottom:3%;
+  width:15%;
+}
+  
+
+
+
+
