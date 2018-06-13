@@ -39,3 +39,11 @@ body{
   left:30vw;
   display:none;
 }
+#taiwan{
+  position:absolute;
+  height:12vw;
+  width:7vw;
+  bottom:9vw;
+  left:4vw;
+  z-index:1;
+}

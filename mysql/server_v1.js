@@ -77,13 +77,14 @@ app.get("/user_data", function(req, res) {
   console.log("user_name: "+user_name);
   console.log("uid: "+uid);
   console.log("url: "+url)
-  con.query("SELECT * FROM test WHERE name = ? AND id = ?",[user_name, uid], function(err, result){
+  con.query("SELECT * FROM user WHERE name = ? AND id = ?",[user_name, uid], function(err, result){
     if(err) throw err;
     console.log("length:"+result.length);
     if(result.length != 0){
+      setTimeout(function(){getObjs_Buildings();},10000);
     }else{
-      console.log("new user: "+ username); 
-      var sql = "INSERT IGNORE INTO test(id, name, exp, lv, url) VALUES ?";
+      console.log("new user: "+ user_name); 
+      var sql = "INSERT IGNORE INTO user(id, name, exp, lv, url) VALUES ?";
       var values = [
         [parseInt(uid), uname, 0, 1, url],
       ];
@@ -216,20 +217,22 @@ app.get('/showObjs', function(req, res){
   con.query("SELECT * FROM total WHERE name = ? AND district = ?", [user_name, district],function(err, result){
     if(err) throw err;
     total=result[0];
-  }); 
-  con.query("SELECT * FROM map", function(err, result){
-    if(err) throw err;
-    for(var i=0;i<result.length ; i++){
-      if(total[i+1]==null){
-        mapObjs.push({filename: result[i].filename, 
-          lat:result[i].lat, lng:result[i].lng
-        })
-      }else{
-        mapObjs.push(null);
+    console.log("total:"+total);
+    con.query("SELECT * FROM map", function(err, result){
+      if(err) throw err;
+      console.log("lengttttttt:"+result.length);
+      for(var i=0;i<result.length ; i++){
+        if(total==null || total[i+1]==null){
+          mapObjs.push({filename: result[i].filename, 
+            lat:result[i].lat, lng:result[i].lng
+          })
+        }else{
+          mapObjs.push(null);
+        }
       }
-    }
-    res.send({mapObjs:mapObjs});
-  });
+      res.send({mapObjs:mapObjs});
+    });
+  }); 
 })
 
 
