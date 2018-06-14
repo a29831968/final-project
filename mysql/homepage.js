@@ -9,49 +9,42 @@ $(document).ready(function(){
 
 })
 function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-	
-	if(response.status === 'connected'){
-		//fetch user data
-		FB.api('/me?fields=picture,name,id',function(response){
-                user_id = response.id;
-      user_name = response.name;
-      user_pic = response.picture.data.url;
-		console.log('var value check:user name=' + user_name + 'user id=' + user_id + 'user pic=' + user_pic);
-	});
-	}
-	else{
-		console.log('user not authorized');
-	}
-		
+    if(response.status === 'connected'){
+      //fetch user data
+      FB.api('/me?fields=picture,name,id',function(response){
+        user_id = response.id;
+        user_name = response.name;
+        user_pic = response.picture.data.url;
+        console.log('user name=' + user_name + '/user id=' + user_id + '/user pic=' + user_pic);
+        $.ajax({
+          method: "get",
+          url:"./user_data",
+          data: {
+            user_id: user_id,
+            user_name: user_name,
+            user_pic: user_pic,
+          },
+          success: function(data){
+          },
+        });
+      });
+    }
+    else{
+      console.log('user not authorized');
+    }
 }
 
 window.fbAsyncInit = function() {
   FB.init({
     appId: '1814380432190801',
-	cookie: true,
+    cookie: true,
     xfbml: true,
     version: 'v2.0'
   });
-  
-  FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
 
-setTimeout(function(){
-$.ajax({
-        method: "get",
-        url:"./user_data",
-        data: {
-          user_id: user_id,
-          user_name: user_name,
-          user_pic: user_pic,
-        },
-        success: function(data){
-        },
-      });
-},3000);
-    });
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
 };
 
 (function(d, s, id){
