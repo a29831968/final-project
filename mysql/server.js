@@ -51,3 +51,20 @@ app.get("/user_data", function(req, res) {
     }
   }); 
 })
+
+
+// require retreive obj & building
+var data_obj=require('./module/retreiveObj.js');
+var data_building=require('./module/retreiveBuildings.js');
+app.get("/buildings", function(req, res) {
+  data_building.retreive_buildings(con, user_info.name, function(result){
+    console.log(result)
+  });  
+  res.send();
+})
+app.get("/objects", function(req, res) {
+  data_obj.retreive_obj(con, user_info.name, function(objs_info){
+    console.log(objs_info);
+  });  
+  res.send();
+})
