@@ -13,8 +13,10 @@ module.exports.retreive_obj=function(con, user_name, callback){
           objs_info.push(result[0][i]);
         }
         if(count==number){
+          console.log("times:"+count);
           console.log("objs_info:"+objs_info);
           callback(objs_info);
+          break;
         }
       }
     }else{

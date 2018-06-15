@@ -7,7 +7,6 @@ module.exports.retreive_buildings= function(con, user_name, callback){
       buildings_info.push(result[0][i]);
     }
     console.log("building_info:"+buildings_info);
-    //return buildings_info;
     callback(buildings_info);
   })
 }
