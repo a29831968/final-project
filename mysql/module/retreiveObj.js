@@ -5,7 +5,6 @@ module.exports.retreive_obj=function(con, user_name, callback){
     if(err) throw err;
     var count=0;
     var number=result[0].amount;
-    console.log("number:"+number);
     if(number>0){
       for(var i=1; i<=25;i++){
         if(result[0][i]!=null){
@@ -13,7 +12,6 @@ module.exports.retreive_obj=function(con, user_name, callback){
           objs_info.push(result[0][i]);
         }
         if(count==number){
-          console.log("times:"+count);
           console.log("objs_info:"+objs_info);
           callback(objs_info);
           break;

@@ -52,17 +52,30 @@ app.get("/user_data", function(req, res) {
   }); 
 })
 
+// global store building and obj
+var buildings_info=[];
+var objs_info=[];
 
 // require retreive obj & building
 var data_obj=require('./module/retreiveObj.js');
 var data_building=require('./module/retreiveBuildings.js');
 app.get("/buildings", function(req, res) {
-  data_building.retreive_buildings(con, user_info.name, function(buildings_info){
+  data_building.retreive_buildings(con, user_info.name, function(result){
+    buildings_info=result;
     res.send(buildings_info);
   });  
 })
 app.get("/objects", function(req, res) {
-  data_obj.retreive_obj(con, user_info.name, function(objs_info){
+  data_obj.retreive_obj(con, user_info.name, function(result){
+    objs_info=result;
     res.send(objs_info);
   });  
+})
+
+// update data when put buildings into house
+var updata = require('./module/updateBuildingsAndObjects.js');
+app.get("/objANDbuild", function(req, res) {
+  updata.update(con, user_info.name, buildings_info, objs_info, req, function(result){
+    return res.send({buildings_info:result.build, objs_info:result.obj});
+  })
 })
