@@ -2,7 +2,40 @@
 var buildings_array=[];
 var objects_array=[];
 $(document).ready(function(){
-  
+  $("#taiwan").click(function(){
+    window.location.assign("./homepage.html");
+  })
+  //
+  $("#map").click(function(){
+    window.location.assign("./map.html");
+  })
+  //
+  $('.entrance').click(function(){
+    $('.switchscreen').animate(
+        {
+              'left':'0px',
+              'top':'0px',
+              'width':'100%',
+              'height':'100%'
+        }, 100,
+        function(){
+          window.location.assign("./letter/letter1.html");
+        });
+  });
+
+  // switch profile 
+  $('.small_person').click(function(){
+    $('.change_to_profile').animate(
+        {
+              'left':'0px',
+              'top':'0px',
+              'width':'100vw',
+              'height':'100vh',
+              'z-index':'2'
+        }, 100,
+        );
+  });
+  //
   console.log("get ready");
   console.log("get buildings");
   // .ajax get building condition

@@ -18,6 +18,11 @@ function initMap() {
     zoom: 14,
     center: {lat: 22.999728, lng: 120.227028}
   });
+
+  //set the click
+  $("#taiwan").click(function(){
+    window.location.assign("./homepage.html"); 
+  });
  
   $.ajax({
     method:'get',
@@ -126,7 +131,7 @@ function getDeviceLocation(){
           fillColor: '#000000',
           fillOpacity: 0.1,
           map:map,
-          radius:1000,
+          radius:distance,
           center:pos,
         });
       }

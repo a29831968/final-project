@@ -1,7 +1,8 @@
- 
+
+var on=0;
 $(document).ready(function()
 {
- var on=1;
+
   $('.next').click(function()     //to the next page
       {
         window.location.assign('../letter/output.html');
@@ -11,18 +12,10 @@ $(document).ready(function()
         window.location.assign('../letter/letter1.html')
  
      });
-   $('.star1').click(function()
-  {  
-    if((on%2)==1)
-    {
-      $('.star1').attr("src","./picture1/star_yellow.png");
-      on++;
-    }
-    else if((on%2)==0)
-    {
- $('.star1').attr("src","./picture1/star_gray.png");
-      on++;
-    
+   $(".star1").click(
+  function(){
+     $('.star1').attr("src","./picture1/star_yellow.png");
+
     });
  $('.star2').click(function()    //to light the star
   {
