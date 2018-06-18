@@ -42,11 +42,11 @@ body{
 }
 .profile_area{
   position:absolute;
-  top:57vh;
+  top:56.9vh;
   left:0;
   width:100vw;
   height:10vh;
-   background-color:blue;
+   
 }
 .letterfunction{
  position:absolute;
@@ -54,7 +54,6 @@ body{
  left:0;
  height:8vh;
  width:100vw;
- background-color:green;
 }
 #test{
  position:absolute;
@@ -67,6 +66,98 @@ textarea{
   width:100%;
   height:100%;
 }
-#form1{
-   margin:0;
- }
+.head_icon{
+ position:absolute; 
+ top:0.7%;
+ left:2vw;
+ width:15vw;
+ height:9.5vh;
+ 
+
+}
+#head{
+ width:100%;
+ height:inherit;
+ border-radius:49%;
+ border:solid;
+}
+.star1{
+ position:absolute;
+ top:0;
+ left:79vw;
+ width:3vw;
+ height:10vh;
+ 
+}
+.star2{
+ position:absolute;
+ top:0;
+ right:15vw;
+ width:3vw;
+ height:10vh;
+ 
+}
+.star3{
+ position:absolute;
+ top:0;
+ right:12vw;
+ width:3vw;
+ height:10vh;
+ 
+}
+.star4{
+ position:absolute;
+ top:0;
+ right:9vw;
+ width:3vw;
+ height:10vh;
+ 
+}
+.star5{
+ position:absolute;
+ top:0;
+ right:6vw;
+ width:3vw;
+ height:10vh;
+ 
+}
+.theme{
+ position:absolute;
+ top:0.7%;
+ left:36vw;
+ height:10vh;
+ width:42vw;
+ border-width:0 !important;
+ font-size:5vw !important;
+ padding-left:2vw !important;
+ padding-top:1.5vh !important;
+}
+.line{
+ position:absolute;
+ top:67vh;
+ left:0;
+ width:100vw;
+ background-color:gray;
+ height:0.1vh;
+
+}
+.user_name{
+ position:absolute;
+ height:10vh;
+ top:0;
+ left:18vw;
+ width:15vw;
+  font-size:3vw;
+  font-weight:999;
+  padding-top:5vh;
+  padding-left:3vw;
+} 
+
+
+
+
+
+
+
+
+
