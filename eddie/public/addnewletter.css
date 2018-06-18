@@ -1,6 +1,6 @@
 body{
  margin:0px;
- overflow:hidden;
+ overflow-x:hidden;
 
 }
 .container{
@@ -10,16 +10,63 @@ body{
   width:100vw;
   height:100vh;
 }
+.topbar{
+ position:absolute;
+ top:0;
+ left:0;
+ width:100vw;
+ height:7vh;
+}
+.close{
+ position:absolute;
+ top:30%;
+ left:5%;
+ width:8%;
+ height:auto;
+}
+.next{
+  position:absolute;
+  top:30%;
+  right:10%;
+  width:10%;
+  height:auto;
+}
+.upload_area{
+  position:absolute;
+  top:7vh;
+  left:0;
+  width:100vw;
+  height:50vh;
+  background-color:red;
+
+}
+.profile_area{
+  position:absolute;
+  top:57vh;
+  left:0;
+  width:100vw;
+  height:10vh;
+   background-color:blue;
+}
+.letterfunction{
+ position:absolute;
+ top:67vh;
+ left:0;
+ height:8vh;
+ width:100vw;
+ background-color:green;
+}
 #test{
  position:absolute;
- top:60vh;
+ top:75vh;
  left:0%;
  width:100vw;
- height:10vh;
+ height:25vh;
 }
 textarea{
   width:100%;
   height:100%;
-  
 }
-
+#form1{
+   margin:0;
+ }
