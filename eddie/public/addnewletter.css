@@ -52,19 +52,23 @@ body{
  position:absolute;
  top:67vh;
  left:0;
- height:8vh;
+ height:6vh;
  width:100vw;
 }
 #test{
  position:absolute;
- top:75vh;
- left:0%;
+ top:73vh;
+ left:0;
  width:100vw;
- height:25vh;
+ height:27vh;
 }
 textarea{
   width:100%;
   height:100%;
+  border:0px !important;
+  font-size:5vw !important;
+  padding-top:2vh !important;
+  padding-left:3vw !important;
 }
 .head_icon{
  position:absolute; 
@@ -84,40 +88,40 @@ textarea{
 .star1{
  position:absolute;
  top:0;
- left:79vw;
- width:3vw;
+ left:76vw;
+ width:4.5vw;
  height:10vh;
  
 }
 .star2{
  position:absolute;
  top:0;
- right:15vw;
- width:3vw;
+ left:80.5vw;
+ width:4.5vw;
  height:10vh;
  
 }
 .star3{
  position:absolute;
  top:0;
- right:12vw;
- width:3vw;
+  left:85vw;
+ width:4.5vw;
  height:10vh;
  
 }
 .star4{
  position:absolute;
  top:0;
- right:9vw;
- width:3vw;
+  left:89.5vw;
+ width:4.5vw;
  height:10vh;
  
 }
 .star5{
  position:absolute;
  top:0;
- right:6vw;
- width:3vw;
+  left:94vw;
+ width:4.5vw;
  height:10vh;
  
 }
@@ -126,7 +130,7 @@ textarea{
  top:0.7%;
  left:36vw;
  height:10vh;
- width:42vw;
+ width:40vw;
  border-width:0 !important;
  font-size:5vw !important;
  padding-left:2vw !important;
@@ -152,8 +156,76 @@ textarea{
   padding-top:5vh;
   padding-left:3vw;
 } 
+.star1>img{
+ width:100%;
+ height:auto;
+ padding-top:3.5vh;
+}
+.star2>img{
+ width:100%;
+ height:auto;
+ padding-top:3.5vh;
+}
+.star3>img{
+ width:100%;
+ height:auto;
+ padding-top:3.5vh;
+}
+.star4>img{
+ width:100%;
+ height:auto;
+ padding-top:3.5vh;
+}
+.star5>img{
+ width:100%;
+ height:auto;
+ padding-top:3.5vh;
+}
+#form1{
+ margin:0;
+
+}
+.people_tag{
+ position:absolute;
+ top:0;
+ left:66vw;
+ height:6vh;
+ width:10vw;
+ padding-top:0.7vh;
+}
+.place_tag{
+position:absolute;
+ top:0;
+ left:78vw;
+ height:6vh;
+ width:8vw;
+ padding-top:0.7vh;
 
 
+}
+.date_tag{
+position:absolute;
+ top:0;
+ left:89vw;
+ height:6vh;
+ width:8vw;
+ padding-top:2vh;
+
+
+
+}  
+.people_tag>img{
+  width:100%;
+  height:100%;
+}
+.place_tag>img{
+  width:100%;
+  height:100%;
+}
+.date_tag>img{
+  width:100%;
+  height:auto;
+}
 
 
 
