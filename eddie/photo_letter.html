@@ -1,0 +1,42 @@
+<!doctype>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>photo</title>
+    <link rel="stylesheet" type="text/css" href="photo_letter.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Compiled and minified CSS template -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript template-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+</head>
+<body>
+  <div class="full_container">  <!--to set position-->
+    <div class="top_bar"><img src="./picture1/bar.png"/>  <!--top bar--> 
+    </div>
+    <img class="close" src="./picture1/close.png"/>  <!--close-->
+    <img class="next" src="./picture1/next.png"/>
+    <div class="image_upload">   <!--upload image-->
+     <form action="/somewhere/to/uploadi" enctype="multipart/form-data" style="margin:0px">
+      <label><img src="./picture1/new.png">
+        <input type="file" id="progressbarTWInput" accept="image/gif, image/jpeg, image/png"></label>
+    </form>
+    </div>
+    <div class="line"></div> <!--line-->
+    <img src="./picture1/test.png"  class="head">   <!--icon-->
+    <input id="input_bar" value="請輸入主題" type="text">  <!--input-->
+      <img src="./picture1/star_gray.png" class="star1"/>  <!--star-->
+     <img src="./picture1/star_gray.png" class="star2"/>  <!--star-->
+   <img src="./picture1/star_gray.png" class="star3"/>  <!--star-->
+   <img src="./picture1/star_gray.png" class="star4"/>  <!--star-->
+   <img src="./picture1/star_gray.png" class="star5"/>  <!--star-->
+   <img src="./picture1/people.png" class="people"/>
+    <img src="./picture1/locate.png" class="locate"/>
+    <img src="./picture1/date.png" class="date"/>
+    <form style="margin:0px;">
+      <textarea id="area" type="text" name="content" text-color="gray" >請輸入文字</textarea>
+      <input id="submit_btn" type="submit" value="儲存">
+    </form>
+    <script src="./photo_letter.js"></script>
+ </body>
+</html>

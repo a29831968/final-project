@@ -1,0 +1,163 @@
+img
+{
+  width:100%;
+  height:auto;
+}
+body
+{
+  margin:0px;
+  overflow-y:scroll;
+  overflow-x:hidden;
+}
+.full_container
+{
+  position:absolute;
+  width:100%;
+  height:100%;
+}
+.top_bar
+{
+  position:relative;
+  top:0px;
+  width:100%;
+}
+.image_upload
+{
+  position:relative;
+  top:0px;
+  height:55%;
+  width:100%;
+}
+.line
+{
+  position:relative;
+  top:170px;
+  width:100%;
+  height:3px;
+  background-color:black;
+} 
+.head{
+   position:relative;
+  top:0px;
+  width:12%;
+  left:3%;
+  margin:0px;
+  border-radius:50%;
+  border-style:solid;
+}
+#input_bar{
+  position:relative;
+  top:-50px;
+  left:60px;
+  width:40%;
+  height:3%;
+  font-size:40px;
+  color:gray;
+}
+.star1
+{
+  position:relative;
+  left:60px;
+  top:-20px;
+  width:7%;
+  height:auto;
+}
+.star2
+{
+  position:relative;
+  left:60px;
+  top:-20px;
+  width:7%;
+  height:auto;
+
+}
+.star3
+{
+  position:relative;
+  left:60px;
+  top:-20px;
+  width:7%;
+  height:auto;
+
+}
+.star4
+{
+  position:relative;
+  left:60px;
+  top:-20px;
+  width:7%;
+  height:auto;
+
+}
+.star5
+{
+  position:relative;
+  left:60px;
+  top:-20px;
+  width:7%;
+  height:auto;
+
+}
+.close
+{
+  position:absolute;
+  left:60px;
+  top:40px;
+  width:6%;
+  height:auto;
+}
+.next
+{
+  position:absolute;
+  right:30px;
+  top:40px;
+  width:20%;
+  height:auto;
+
+}
+.people{
+  position:relative;
+  left:-200px;
+  top:125px;
+  width:8%;
+  height:auto; 
+}  
+.locate{
+ position:relative;
+  left:780px;
+  top:0px;
+  width:7%;
+  height:auto;
+
+}
+.date{ 
+position:relative;
+  left:800px;
+  top:4px;
+  width:8%;
+  height:auto;
+}
+#area{
+  font-size:50px;
+  height:50rem;
+  width:100%;
+   
+}
+button, html [type="button"], [type="reset"], [type="submit"]
+{
+  width:100%;
+  height:5%;
+  font-size:40px;
+}
+input[type="file"]
+{
+  display:none;
+
+}
+
+
+
+
+
+
+
