@@ -226,6 +226,19 @@ position:absolute;
   width:100%;
   height:auto;
 }
+#form2{
+margin-bottom:0;
+}
+#pictureupload{
+  display:none;
+}
+#l{
+  font-size:50px;
+  position:absolute;
+  top:22vh;
+  left:38vw;
+}
+
 
 
 
