@@ -238,9 +238,45 @@ margin-bottom:0;
   top:22vh;
   left:38vw;
 }
+#button_left{
+display:none;
+background-color:red;
+width:20vw;
+height:20vh;
+z-index:1;
+position:absolute;
+}
+#button_right{
+display:none;
+background-color:blue;
+width:20vw;
+height:20vh;
+z-index:1;
+position:absolute;
+right:10vw;
 
+}
+#choose{
+position:absolute;
+z-index:2;
+top:-20vh;
+left:20vw;
+width:60vw;
+height:10vh;
 
-
+}
+#date{
+  width:100% !important;
+  height:auto !important;
+ font-size:40px !important;
+ }
+#sure{
+height:3vh !important;
+width:6vw !important;
+position:absolute;
+left:110%;
+top:0.5%;
+}
 
 
 

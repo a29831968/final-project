@@ -1,7 +1,8 @@
+exports.up=(array)=>{
+
 var imgur=require('imgur');
 imgur.setClientId('77768b16aa10a00');
-
-
+var images=new Array(10);
 imgur.getClientId();
 
 // Saving to disk. Returns a promise.
@@ -29,13 +30,14 @@ imgur.setMashapeKey('https://imgur-apiv3.p.mashape.com/');
 imgur.getMashapeKey();
 imgur.setCredentials('groupg', 'groupgimgur1', '77768b16aa10a00');
 
-imgur.uploadFile('../picture/back.png')
-    .then(function (json) {
-        console.log(json.data.link);
-    })
+
+imgur.uploadImages(array,('','','Base64'))  //upload multiple images base64
+      .then(function(images) {
+                console.log(images);
+                    })
     .catch(function (err) {
-        console.error(err.message);
-    });
+              console.error(err.message);
+                  });
 
-
+}
 
