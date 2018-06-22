@@ -1,0 +1,44 @@
+var statusofupload=0;
+var put=0;i
+var fuck;
+var img=new Array();
+var test=new Array('reybr','trbrtb','trbtrbb');
+$(document).ready(function()
+{   
+ $('.close').click(function()   //back to last page
+  {
+      window.location.assign('../letter/letter1.html') 
+  });
+   $("#pictureupload").change(function(){   //for upload picture
+      $('#form2').html('<h1 id="l">Loading...</h1>')
+        readURL(this); 
+
+   });
+ function readURL(input){    //to translate the upload picture into fancybox and store it into array 
+   for(var i = 0; i < input.files.length; i++){
+    put=input.files.length;
+     var reader = new FileReader();
+      reader.onload = function (e) { 
+       if(e.target.result.search("data:image/jpeg;base64,")==0)
+        fuck=e.target.result.replace("data:image/jpeg;base64,",'');    //delete the title of data/image...
+       if(e.target.result.search("data:image/png;base64,")==0)
+       fuck=e.target.result.replace("data:image/png;base64,",''); 
+       console.log(typeof(img));
+        //if(i==input.files.length)
+       // $('#l').hide(); 
+      
+      }
+      reader.readAsDataURL(input.files[i]);
+    }
+   console.log(img[0]);
+  }   //end readurl
+  $('.next').click(function(event)
+  {
+    $.ajax({
+      method:"post",
+      url:"./get_picture",
+      traditional:true,
+      data:{img:img},
+    }); // end ajax
+  });// end click
+});
