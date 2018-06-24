@@ -34,7 +34,21 @@ function initMap() {
       setObjs(mapObjsList, map);
     }
   })
-  getDeviceLocation();
+  //
+  if (navigator.geolocation){
+    console.log("navigator.geolocation");
+    var optn={
+      enableHighAccuracy: true,
+      timeout : Infinity,
+      maximumAge: 0,
+      frequency:100,
+    };
+    var watchID = navigator.geolocation.watchPosition(success, fail, optn);
+  }else{
+    console.log("Not supported");
+  }
+  //
+  //getDeviceLocation();
 }
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
@@ -197,4 +211,87 @@ function addTobag(x){
     })
     getDeviceLocation();
   }
+}
+
+
+function success(position)
+{
+  var googleLatLng = new google.maps.LatLng(position.coords.latitude, 
+      position.coords.longitude);
+  
+  //
+  if(currentLocation != null){
+        console.log("none null");
+        currentLocation.setMap(null);
+        currentLocation = new google.maps.Marker({
+          position: pos,
+          icon: 'https://maps.gstatic.com/intl/en_us/mapfiles/markers2/measle_blue.png',
+          zoom:14,
+          center:googleLatLng,
+          mapTypeId:google.maps.MapTypeId.ROAD,
+        });
+      }else{
+        console.log("null");
+        currentLocation = new google.maps.Marker({
+          position: pos,
+          icon: 'https://maps.gstatic.com/intl/en_us/mapfiles/markers2/measle_blue.png',
+          zoom:14,
+          center:googleLatLng,
+          mapTypeId:google.maps.MapTypeId.ROAD
+        });
+      }
+  
+  console.log(position.coords.latitude.toString());
+  console.log(position.coords.longitude.toString());
+  //var Pmap=document.getElementById("map");
+  
+  //var map=new google.maps.Map(Pmap, mapOtn);
+  
+  //
+  //console.log("currentLocation:"+currentLocation);
+      // calculate the bound and set the obj get button in the information
+      distanceBound(currentLocation, objMarkerList);
+      currentLocation.setMap(map);
+      //map.setCenter(pos);
+      if(currentCircle != null){
+        currentCircle.setMap(null);
+        currentCircle = new google.maps.Circle({
+          strokeColor: '#000000',
+          strockOpacity: 0.7,
+          strokeWeight: 0.2,
+          fillColor: '#000000',
+          fillOpacity: 0.1,
+          map:map,
+          radius:distance,
+          center:pos,
+        });
+      }else{
+        currentCircle = new google.maps.Circle({
+          strokeColor: '#000000',
+          strockOpacity: 0.7,
+          strokeWeight: 0.2,
+          fillColor: '#000000',
+          fillOpacity: 0.1,
+          map:map,
+          radius:distance,
+          center:pos,
+        });
+      }
+}
+
+function fail(error)
+{
+  var errorType={
+    0:"Unknown Error",
+    1:"Permission denied by the user",
+    2:"Position of the user not available",
+    3:"Request timed out"
+  };
+
+  var errMsg = errorType[error.code];
+
+  if(error.code == 0 || error.code == 2){
+    errMsg = errMsg+" - "+error.message;
+  }
+
 }
