@@ -11,7 +11,7 @@ var objMarkerList=[];
 
 // 1km
 const distance = 2000;
-function initMap() {
+$(document).ready(function() {
   console.log("initMap");
   // initialize the map
   map = new google.maps.Map(document.getElementById('map'), {
@@ -49,7 +49,7 @@ function initMap() {
   }
   //
   //getDeviceLocation();
-}
+})
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(browserHasGeolocation ?
@@ -209,7 +209,7 @@ function addTobag(x){
         setObjs(mapObjsList, map);
       }
     })
-    getDeviceLocation();
+    window.location.assign("./house.html"); 
   }
 }
 
@@ -224,7 +224,7 @@ function success(position)
         console.log("none null");
         currentLocation.setMap(null);
         currentLocation = new google.maps.Marker({
-          position: pos,
+          position: googleLatLng,
           icon: 'https://maps.gstatic.com/intl/en_us/mapfiles/markers2/measle_blue.png',
           zoom:14,
           center:googleLatLng,
@@ -233,7 +233,7 @@ function success(position)
       }else{
         console.log("null");
         currentLocation = new google.maps.Marker({
-          position: pos,
+          position: googleLatLng,
           icon: 'https://maps.gstatic.com/intl/en_us/mapfiles/markers2/measle_blue.png',
           zoom:14,
           center:googleLatLng,
@@ -263,7 +263,7 @@ function success(position)
           fillOpacity: 0.1,
           map:map,
           radius:distance,
-          center:pos,
+          center:googleLatLng,
         });
       }else{
         currentCircle = new google.maps.Circle({
@@ -274,7 +274,7 @@ function success(position)
           fillOpacity: 0.1,
           map:map,
           radius:distance,
-          center:pos,
+          center:googleLatLng,
         });
       }
 }
