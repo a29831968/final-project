@@ -10,6 +10,11 @@ $(document).ready(function(){
     window.location.assign("./map.html");
   })
   //
+  $("#d").click(function(){
+    va=$("#d").val();
+    console.log(va);
+  })
+  //
   $('.entrance').click(function(){
     $('.switchscreen').animate(
         {
