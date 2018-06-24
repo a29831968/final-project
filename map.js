@@ -5,7 +5,6 @@ function initMap(){
     zoom: 14,
     center: {lat: 22.999728, lng: 120.227028},
   });
-
   if (navigator.geolocation){
     console.log("navigator.geolocation");
     var optn={
@@ -19,10 +18,8 @@ function initMap(){
     console.log("Not supported");
   }
 }
-var times=1;
 function success(position)
 {
-  console.log(times);
   var googleLatLng = new google.maps.LatLng(position.coords.latitude, 
       position.coords.longitude);
   var mapOtn={
@@ -30,15 +27,12 @@ function success(position)
     center:googleLatLng,
     mapTypeId:google.maps.MapTypeId.ROAD
   };
-  document.getElementById("lat").innerHTML = position.coords.latitude.toString();
-  document.getElementById("lng").innerHTML = position.coords.longitude.toString();
   console.log(position.coords.latitude.toString());
   console.log(position.coords.longitude.toString());
   var Pmap=document.getElementById("map");
 
   var map=new google.maps.Map(Pmap, mapOtn);
   addMarker(map, googleLatLng, "You");
-  times=times+1;
 }
 
 function fail(error)
@@ -56,7 +50,6 @@ function fail(error)
     errMsg = errMsg+" - "+error.message;
   }
 
-  //$("p").html(errMsg);
 }
 
 function addMarker(map, googleLatLng, title){
@@ -68,12 +61,4 @@ function addMarker(map, googleLatLng, title){
   };
 
   var marker=new google.maps.Marker(markerOptn);
-
-  /*
-  var infoWindow=new google.maps.InfoWindow({ content: content, 
-    position: googleLatLng});
-  google.maps.event.addListener(marker, "click", function(){
-    infoWindow.open(map);
-  });
-  */
 }
