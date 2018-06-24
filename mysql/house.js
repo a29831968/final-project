@@ -201,3 +201,11 @@ $("#mask").click(function(){
     }
 })
 
+// user list navigation open and close
+function openNav() {
+      document.getElementById("mySidenav").style.width = "30vw";
+}
+
+function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+}
