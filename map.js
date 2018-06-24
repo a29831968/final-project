@@ -37,8 +37,7 @@ function success(position)
   var Pmap=document.getElementById("map");
 
   var map=new google.maps.Map(Pmap, mapOtn);
-  addMarker(map, googleLatLng, "Technotip.com", 
-      "SATISH B<br /><b>About Me:</b>http://technotip.com/about/");
+  addMarker(map, googleLatLng, "You");
   times=times+1;
 }
 
@@ -60,7 +59,7 @@ function fail(error)
   //$("p").html(errMsg);
 }
 
-function addMarker(map, googleLatLng, title, content){
+function addMarker(map, googleLatLng, title){
   var markerOptn={
     position:googleLatLng,
     map:map,
@@ -70,9 +69,11 @@ function addMarker(map, googleLatLng, title, content){
 
   var marker=new google.maps.Marker(markerOptn);
 
+  /*
   var infoWindow=new google.maps.InfoWindow({ content: content, 
     position: googleLatLng});
   google.maps.event.addListener(marker, "click", function(){
     infoWindow.open(map);
-  });                          
+  });
+  */
 }
