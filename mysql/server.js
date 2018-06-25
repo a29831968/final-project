@@ -39,19 +39,24 @@ app.get("/user_data", function(req, res) {
   var uid = req.query.user_id;
   var user_name = req.query.user_name;
   var url=req.query.user_pic;
-  if(user_info.name == ""){
-    user_info.uid=uid;
-    user_info.url=url;
-    user_info.name=user_name;
-  }
+  user_info.uid=uid;
+  user_info.url=url;
+  user_info.name=user_name;
   check_User.checkUser(con, user_info.name, uid, function(exist){
     if(exist){
       console.log("User exist"); // if user already exist, nothing happens.
       con.query("SELECT * FROM user WHERE name = ? ", user_info.name,function(err, result){
       if(err) throw err;
-        console.log("user:"+result[0].lv);
         user_info.lv=result[0].lv;
         user_info.exp=result[0].exp;
+        con.query("UPDATE user SET url = ?",user_info.url,function(err, result){
+          if(err) throw err;
+        })
+        // get all users
+        con.query("SELECT * FROM user" ,function(err, result){
+          if(err) throw err;
+          friend_list=result;
+        })
       })
     }else{
       // if user does not exist in db,
@@ -60,12 +65,12 @@ app.get("/user_data", function(req, res) {
       new_User.insertUser(con, user_info.name, user_info.uid, user_info.url);
       user_info.lv=1;
       user_info.exp=0;
+      // get all users
+      con.query("SELECT * FROM user" ,function(err, result){
+        if(err) throw err;
+        friend_list=result;
+      })
     }
-    // get all users
-    con.query("SELECT * FROM user" ,function(err, result){
-      if(err) throw err;
-      friend_list=result;
-    })
   }); 
 })
 
@@ -90,6 +95,7 @@ app.get("/objects", function(req, res) {
 })
 // user all info && all user
 app.get("/user_all_info", function(req, res) {
+  console.log("check:"+friend_list[0].url);
   res.send({user_info:user_info, friend_list:friend_list});
 });  
 // update data when put buildings into house

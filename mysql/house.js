@@ -4,8 +4,10 @@ var objects_array=[];
 var user_info={};
 var friend_list;
 $(document).ready(function(){
+  /*
   xxx="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2157343054280629&height=50&width=50&ext=1530139180&hash=AeQCmh2vlkawCwsp";
   $("#mySidenav").append('<div class="friend_list"><div class="friend_cir"><img width="100vw" src="'+xxx+'"/></div> <p class="names" id="Tony Yang">Yang</p></div>');
+  */
   $.ajax({
     method:"get",
     url: "./user_all_info",
@@ -14,6 +16,20 @@ $(document).ready(function(){
     success: function(data){
       user_info=data.user_info;
       friend_list=data.friend_list;
+      // user list append
+      for (var i=0; i<friend_list.length; i++){
+        if(friend_list[i].url == user_info.url){
+          $("#mySidenav").append('<div class="friend_list"><div class="friend_cir"><img width="100vw" src="'+friend_list[i].url+'"/></div> <p class="names" id="'+friend_list[i].id+'">'+ friend_list[i].name+'</p></div>');
+        }
+      }
+      // click function for every users
+      // navigate to other user's house
+      $('.names').click(function () {
+        var NameId;
+        NameId = $(this).attr('id');
+        console.log(NameId);
+        window.location.assign("./friend.html");
+      });
       // draw exp
       var canvas = document.getElementById("canvas");
       if (canvas.getContext) {
@@ -28,14 +44,6 @@ $(document).ready(function(){
       $("#lv").html("Lv:"+user_info.lv);
     }
   })
-  // click function for every users
-  // navigate to other user's house
-  $('.names').click(function () {
-    var NameId;
-    NameId = $(this).attr('id');
-    console.log(NameId);
-    window.location.assign("./friend.html");
-  });
   $("#taiwan").click(function(){
     window.location.assign("./homepage.html");
   })
