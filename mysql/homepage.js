@@ -6,7 +6,19 @@ $(document).ready(function(){
   $("#tainan_btn").click(function(){
     window.location.assign("./house.html");
   })
-
+  // switch profile
+  $('#profile').click(function(){
+    $('.change_to_profile').animate(
+        {
+          'left':'0px',
+          'top':'0px',
+          'width':'100vw',
+          'height':'100vh',
+          'z-index':'2'
+        }, 100,
+        );
+    $('.profile_bottom').css({'display':'block'});
+  });
 })
 function statusChangeCallback(response) {
     if(response.status === 'connected'){
@@ -27,6 +39,31 @@ function statusChangeCallback(response) {
           success: function(data){
           },
         });
+        // profile_information
+        $.ajax({
+          method:"get",
+          url: "./profile_profile",
+          data:{
+          },
+          success: function(data){
+            total=data.total;
+            percent=(total/20)*100;
+            user_profile=data.user_profile;
+            $("#cir").append('<p id="dis_name">'+percent+'%</p>');
+            $(".profile_profile").append('<p class="profile_name">'+user_profile.name+'</p><br><p class="profile_name">Lv:'+user_profile.lv+'</p><br>')
+              $(".profile_profile").append('<canvas id="canvas1" width="300" height="20"></canvas>'); 
+
+            var canvas = document.getElementById("canvas1");
+            if (canvas.getContext) {
+              var ctx = canvas.getContext("2d");
+              ctx.fillStyle = "rgb(255,228,196)";
+              ctx.fillRect (0, 0, 300, 20);
+              exp=parseInt(user_profile.exp)*3; 
+              ctx.fillStyle = "rgb(200,0,0)";
+              ctx.fillRect (0, 0, exp, 20);
+            }
+          }
+        })
       });
     }
     else{
