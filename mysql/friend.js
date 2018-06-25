@@ -15,7 +15,8 @@ $(document).ready(function(){
       user_profile=data.user_profile;
       $("#cir").append('<p id="dis_name">'+percent+'%</p>');
       $(".profile_profile").append('<p class="profile_name">'+user_profile.name+'</p><br><p class="profile_name">Lv:'+user_profile.lv+'</p><br>')
-        $(".profile_profile").append('<canvas id="canvas1" width="300" height="20"></canvas>'); 
+      $(".profile_profile").append('<canvas id="canvas1" width="300" height="20"></canvas>'); 
+      $(".pro_cir").append('<img width="100vw" src="'+user_profile.url+'"/>')
       // draw exp
       var canvas = document.getElementById("canvas1");
       if (canvas.getContext) {
