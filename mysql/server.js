@@ -193,3 +193,31 @@ function getObjAndTotal(req, res){
     res.send({mapObjs:mapObjs});
   });
 }
+// set friend's name
+var friend;
+var friend_buildings_info;
+var friend_objs_info;
+app.get("/friend_id", function(req, res) {
+  var uid = req.query.id;
+  con.query("SELECT * FROM user WHERE id = ?", uid,function(err, result){
+    if(err) throw err;
+    friend=result;
+  })
+})
+// get friend own info
+app.get("/friend_own_info", function(req, res) {
+    res.send(friend);
+})
+// friend's buildings and objs
+app.get("/friend_buildings", function(req, res) {
+  data_building.retreive_buildings(con, friend[0].name, function(result){
+    friend_buildings_info=result;
+    res.send(friend_buildings_info);
+  });  
+})
+app.get("/friend_objects", function(req, res) {
+  data_obj.retreive_obj(con, friend[0].name, function(result){
+    friend_objs_info=result;
+    res.send(friend_objs_info);
+  });  
+})

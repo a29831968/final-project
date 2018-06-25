@@ -1,28 +1,27 @@
 // needed info
 var buildings_array=[];
 var objects_array=[];
-var user_info={};
-var friend_list;
+var friend_info;
 $(document).ready(function(){
   $.ajax({
     method:"get",
-    url: "./user_all_info",
+    url: "./friend_own_info",
     data:{
     },
     success: function(data){
-      user_info=data.user_info;
+      friend_info=data;
       // draw exp
       var canvas = document.getElementById("canvas");
       if (canvas.getContext) {
         var ctx = canvas.getContext("2d");
         ctx.fillStyle = "rgb(255,228,196)";
         ctx.fillRect (0, 0, 200, 20);
-        exp=parseInt(user_info.exp)*2; 
+        exp=parseInt(friend_info[0].exp)*2; 
         ctx.fillStyle = "rgb(200,0,0)";
         ctx.fillRect (0, 0, exp, 20);
       }
-      $("#self_name").html(user_info.name);
-      $("#lv").html("Lv:"+user_info.lv);
+      $("#self_name").html(friend_info[0].name);
+      $("#lv").html("Lv:"+friend_info[0].lv);
     }
   })
   $("#taiwan").click(function(){
@@ -65,7 +64,7 @@ $(document).ready(function(){
   // and set the buildings in every block
   $.ajax({
     method:"get",
-    url: "./buildings",
+    url: "./friend_buildings",
     data:{
     },
     success: function(data){
@@ -78,7 +77,7 @@ $(document).ready(function(){
   console.log("get objects");
   $.ajax({
     method: "get",
-    url: "./objects",
+    url: "./friend_objects",
     data:{
     },
     success: function(data){

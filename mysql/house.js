@@ -28,6 +28,16 @@ $(document).ready(function(){
         var NameId;
         NameId = $(this).attr('id');
         console.log(NameId);
+        // set the username which you want to check
+        $.ajax({
+          method:"get",
+          url: "./friend_id",
+          data:{
+            id:NameId,
+          },
+          success: function(data){
+          }
+        })
         window.location.assign("./friend.html");
       });
       // draw exp
