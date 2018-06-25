@@ -2,6 +2,24 @@
 var buildings_array=[];
 var objects_array=[];
 $(document).ready(function(){
+  // click function for every users
+  // navigate to other user's house
+  $('.names').click(function () {
+    var NameId;
+    NameId = $(this).attr('id');
+    console.log(NameId);
+    window.location.assign("./friend.html");
+  });
+  // draw exp
+  var canvas = document.getElementById("canvas");
+  if (canvas.getContext) {
+    var ctx = canvas.getContext("2d");
+    ctx.fillStyle = "rgb(255,228,196)";
+    ctx.fillRect (0, 0, 200, 20);
+    
+    ctx.fillStyle = "rgb(200,0,0)";
+    ctx.fillRect (0, 0, 100, 20);
+  }
   $("#taiwan").click(function(){
     window.location.assign("./homepage.html");
   })
@@ -208,7 +226,7 @@ $("#mask").click(function(){
 
 // user list navigation open and close
 function openNav() {
-      document.getElementById("mySidenav").style.width = "30vw";
+      document.getElementById("mySidenav").style.width = "40vw";
 }
 
 function closeNav() {

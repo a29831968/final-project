@@ -11,7 +11,7 @@ var objMarkerList=[];
 
 // 1km
 const distance = 2000;
-$(document).ready(function() {
+function initMap() {
   console.log("initMap");
   // initialize the map
   map = new google.maps.Map(document.getElementById('map'), {
@@ -49,7 +49,7 @@ $(document).ready(function() {
   }
   //
   //getDeviceLocation();
-})
+}
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(browserHasGeolocation ?
