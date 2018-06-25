@@ -4,6 +4,8 @@ var objects_array=[];
 var user_info={};
 var friend_list;
 $(document).ready(function(){
+  xxx="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2157343054280629&height=50&width=50&ext=1530139180&hash=AeQCmh2vlkawCwsp";
+  $("#mySidenav").append('<div class="friend_list"><div class="friend_cir"><img width="100vw" src="'+xxx+'"/></div> <p class="names" id="Tony Yang">Yang</p></div>');
   $.ajax({
     method:"get",
     url: "./user_all_info",
