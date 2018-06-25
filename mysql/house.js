@@ -3,11 +3,34 @@ var buildings_array=[];
 var objects_array=[];
 var user_info={};
 var friend_list;
+var total;
+var user_profile={};
 $(document).ready(function(){
-  /*
-  xxx="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2157343054280629&height=50&width=50&ext=1530139180&hash=AeQCmh2vlkawCwsp";
-  $("#mySidenav").append('<div class="friend_list"><div class="friend_cir"><img width="100vw" src="'+xxx+'"/></div> <p class="names" id="Tony Yang">Yang</p></div>');
-  */
+  // profile information
+  $.ajax({
+    method:"get",
+    url: "./profile_profile",
+    data:{
+    },
+    success: function(data){
+      total=data.total;
+      percent=(total/20)*100;
+      user_profile=data.user_profile;
+      $("#cir").append('<p id="dis_name">'+percent+'%</p>');
+      $(".profile_profile").append('<p class="profile_name">'+user_profile.name+'</p><br><p class="profile_name">Lv:'+user_profile.lv+'</p><br>')
+        $(".profile_profile").append('<canvas id="canvas1" width="300" height="20"></canvas>'); 
+      // draw exp
+      var canvas = document.getElementById("canvas1");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "rgb(255,228,196)";
+        ctx.fillRect (0, 0, 300, 20);
+        exp=parseInt(user_profile.exp)*3; 
+        ctx.fillStyle = "rgb(200,0,0)";
+        ctx.fillRect (0, 0, exp, 20);
+      }
+    }
+  })
   $.ajax({
     method:"get",
     url: "./user_all_info",

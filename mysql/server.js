@@ -221,3 +221,20 @@ app.get("/friend_objects", function(req, res) {
     res.send(friend_objs_info);
   });  
 })
+
+// profile page
+app.get("/profile_profile", function(req, res){
+  data_building.retreive_buildings(con, user_info.name, function(result){
+    var total=0;
+    for(var i=0; i<result.length; i++){
+      if(result[i]!=null){
+        total=total+1;
+      }
+    }
+    con.query("SELECT * FROM objects WHERE name = ?", user_info.name,function(err, result){
+      if(err) throw err;
+      total=parseInt(total)+parseInt(result[0].amount);
+      res.send({total:total, user_profile:user_info});
+    })
+  });  
+})
