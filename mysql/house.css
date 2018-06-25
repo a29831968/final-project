@@ -46,6 +46,13 @@ body,html{
   height:5.5vw;
   background-color: rgb(255, 255, 255, 0.1);
 }
+#block20{
+  position:absolute;
+  top:0vw;
+  left:20vw;
+  width:60vw;
+  height:60vw;
+}
 #block7{
   display:inline-block;
   position:absolute;

@@ -23,8 +23,10 @@ var user_info={
   name:"",
   uid:"",
   url:"",
+  lv:"",
+  exp:"",
 };
-
+var friend_list;
 // connect database
 var con=require('./module/dbconnect.js');
 
@@ -45,12 +47,25 @@ app.get("/user_data", function(req, res) {
   check_User.checkUser(con, user_info.name, uid, function(exist){
     if(exist){
       console.log("User exist"); // if user already exist, nothing happens.
+      con.query("SELECT * FROM user WHERE name = ? ", user_info.name,function(err, result){
+      if(err) throw err;
+        console.log("user:"+result[0].lv);
+        user_info.lv=result[0].lv;
+        user_info.exp=result[0].exp;
+      })
     }else{
       // if user does not exist in db,
       // insert data in it.
       console.log("User not exist");
       new_User.insertUser(con, user_info.name, user_info.uid, user_info.url);
+      user_info.lv=1;
+      user_info.exp=0;
     }
+    // get all users
+    con.query("SELECT * FROM user" ,function(err, result){
+      if(err) throw err;
+      friend_list=result;
+    })
   }); 
 })
 
@@ -73,7 +88,10 @@ app.get("/objects", function(req, res) {
     res.send(objs_info);
   });  
 })
-
+// user all info && all user
+app.get("/user_all_info", function(req, res) {
+  res.send({user_info:user_info, friend_list:friend_list});
+});  
 // update data when put buildings into house
 var updata = require('./module/updateBuildingsAndObjects.js');
 app.get("/objANDbuild", function(req, res) {

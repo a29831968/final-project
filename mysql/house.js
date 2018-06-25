@@ -1,7 +1,31 @@
 // needed info
 var buildings_array=[];
 var objects_array=[];
+var user_info={};
+var friend_list;
 $(document).ready(function(){
+  $.ajax({
+    method:"get",
+    url: "./user_all_info",
+    data:{
+    },
+    success: function(data){
+      user_info=data.user_info;
+      friend_list=data.friend_list;
+      // draw exp
+      var canvas = document.getElementById("canvas");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "rgb(255,228,196)";
+        ctx.fillRect (0, 0, 200, 20);
+        exp=parseInt(user_info.exp)*2; 
+        ctx.fillStyle = "rgb(200,0,0)";
+        ctx.fillRect (0, 0, exp, 20);
+      }
+      $("#self_name").html(user_info.name);
+      $("#lv").html("Lv:"+user_info.lv);
+    }
+  })
   // click function for every users
   // navigate to other user's house
   $('.names').click(function () {
@@ -10,27 +34,12 @@ $(document).ready(function(){
     console.log(NameId);
     window.location.assign("./friend.html");
   });
-  // draw exp
-  var canvas = document.getElementById("canvas");
-  if (canvas.getContext) {
-    var ctx = canvas.getContext("2d");
-    ctx.fillStyle = "rgb(255,228,196)";
-    ctx.fillRect (0, 0, 200, 20);
-    
-    ctx.fillStyle = "rgb(200,0,0)";
-    ctx.fillRect (0, 0, 100, 20);
-  }
   $("#taiwan").click(function(){
     window.location.assign("./homepage.html");
   })
   //
   $("#map").click(function(){
     window.location.assign("./map.html");
-  })
-  //
-  $("#d").click(function(){
-    va=$("#d").val();
-    console.log(va);
   })
   //
   $('.entrance').click(function(){
