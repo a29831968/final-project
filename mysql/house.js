@@ -86,6 +86,7 @@ $(document).ready(function(){
               'z-index':'2'
         }, 100,
         );
+    $('.profile_bottom').css({'display':'block'});
   });
   //
   console.log("get ready");
