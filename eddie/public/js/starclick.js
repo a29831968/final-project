@@ -1,5 +1,4 @@
 var statusl=0;
-var star=0
 $('.star1').click(function()  //click star to give score
   { 
     if(statusl==1)   //unlight 
@@ -105,6 +104,7 @@ $('.star5').click(function()  //click star to give score
           star=5
       statusl=1;
     }
+    console.log(star);
       });
 
 
