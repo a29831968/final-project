@@ -292,8 +292,18 @@ position:absolute;
 height:100vh;
 z-index=2;
 background-color:rgba(100,100,100,0.5);
+display:none;
 } 
-
-
+#loading>img{
+width:100%;
+height:auto;
+}
+#loading{
+position: absolute;
+    width: 40vw;
+    height: 20vh;
+    top: 40vh;
+    left: 30vw;
+}
 
 
