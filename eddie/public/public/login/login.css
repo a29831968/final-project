@@ -1,0 +1,40 @@
+html, body
+{
+    height: 100%;
+	width:100%;
+	padding: 0;
+    margin: 0;
+}
+
+body{
+background-color:#101128;
+}
+
+#logo{
+position:absolute;
+left:50%;
+top:50%;
+height:0px;
+width:0px;
+margin:0px auto;
+transition:2s;
+}
+#loginbtn{
+position:absolute;
+top:70%;
+background-image:url("assets/ICON1.png");
+background-repeat:no-repeat;
+height:8%;
+width:60%;
+left:20%;
+background-size:100% 100%;
+}
+
+#word{
+position:relative;
+top:80%;
+height:auto;
+width:50%;
+margin:0px auto;
+color:white;
+}

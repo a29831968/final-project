@@ -1,9 +1,20 @@
 const express=require('express');
 const uuid = require('node-uuid');  
 const app=express();
+const fs = require('fs')
+const https = require('https')
 const port=10061;
 const imgurUPLOAD=require('./modules_extended/imgurapi');
 const mysql=require('mysql') 
+// create https
+const options = 
+{
+  ca: fs.readFileSync('/home/uidd2018/ssl/ca_bundle.crt'),
+  cert: fs.readFileSync('/home/uidd2018/ssl/certificate.crt'),
+  key: fs.readFileSync('/home/uidd2018/ssl/private.key')
+}
+https.createServer(options, app).listen(port, () => console.log(`listen on port:`+ port));
+
 var bodyParser = require('body-parser');
 var getlink='';   //get link
 var getid='';  //get id from first picture
@@ -16,7 +27,6 @@ var
    friend,
    topic,
    content;
-app.listen(port);
 app.use(express.static(__dirname+'/public'));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
@@ -88,22 +98,84 @@ app.post('/get_somedata',function(req,res)  //get textarea and put it in databas
     if (err) throw err;
     console.log(result.affectedRows + " record(s) updated")
 });
-// var sql3 = "UPDATE letter SET letter_date = '"+date+"' WHERE letter_date = 'NULL';"
-  //con.query(sql3, function (err, result) {
-  //  if (err) throw err;
- // });
- // var sql4 = "UPDATE letter SET letter_place = '"+place+"' WHERE letter_place = 'NULL';"
- // con.query(sql4, function (err, result) {
- //   if (err) throw err;
- //   console.log(result.affectedRows + " record(s) updated")
-//});
-// var sql5 = "UPDATE letter SET letter_friends = '"+friend+"' WHERE letter_friends = 'NULL';"
-  //con.query(sql5, function (err, result) {
-    //if (err) throw err;
-//  });
+}); 
+//send post data to post
+    app.get("/timeline/post_data", function(req, res) {
+  console.log("receive request from TL");
+			var sql = "SELECT letter_id, letter_topic, letter_like FROM letter";
+		
+		con.query(sql, function(err, result){
+			if(err) throw err;
+      res.send(result);
+		});
+	
+});
 
-    
-  });  
+//var req_pid; //stores requested pid from timeline
+
+//receive pid from timeline req
+app.get("/timeline/pidreq", function(req, res){
+  uid=req.query.pid;
+  console.log("received req for pid="+req_pid);
+});
+app.get("/B/post_data", function(req, res){
+      var sql= "SELECT * FROM letter WHERE letter_id=?";
+    con.query(sql, uid, function(err, result){
+      if(err) throw err;
+      console.log(result);
+      res.send(result);
+    });
+  });
+
+app.get("/B/picture", function(req,res){
+  var sql = "SELECT pictureurl FROM picture WHERE letter_id=?";
+  con.query(sql, uid, function(err,result){
+    if(err) throw err;
+    res.send(result);
+  });
+});
+
+//USER_ID
+app.get("/B/like_data", function(req, res){
+  var sql = "SELECT * FROM likes WHERE uid=? AND pid=?";
+  con.query(sql, [USER_ID, uid], function(err, result){
+    if(err) throw err;
+    res.send(result);
+  });
+});
+
+app.get("/B/insert", function(req, res){
+  var sql = "INSERT INTO likes (uid, pid) VALUES ?";
+  var values = [[USER_ID, uid],];
+  con.query(sql, [values], function(err, result){
+    if(err) throw err;
+    console.log("inserted");
+  });
+});
+
+app.get("/B/delete", function(req, res){
+  var sql = "DELETE FROM likes WHERE uid=? AND pid=?";
+  con.query(sql, [USER_ID, uid], function(err, result){
+    if(err) throw err;
+    console.log("deleted");
+  });
+});
+
+app.get("/B/like_count", function(){
+  console.log("counting likes...");
+  var sql = "SELECT uid FROM likes WHERE pid=?";
+  con.query(sql, uid, function(err,result){
+    if(err) throw err;
+    var count = result.length;
+    console.log(count);
+    var sql = "UPDATE letter SET letter_like = ? WHERE letter_id = ?";
+    con.query(sql, [count, uid], function(err,result){
+      if(err) throw err;
+      console.log("count updated");
+    });
+  });
+});
+  
 
 
 

@@ -8,7 +8,7 @@ $(document).ready(function()
 {   
  $('.close').click(function()   //back to last page
   {
-      window.location.assign('../letter/letter1.html') 
+      window.location.assign('../timeline/timeline.html') 
   });
   
       $("#pictureupload").change(function(){   //for upload picture
@@ -82,7 +82,7 @@ $('#sure').click(function()
       traditional:true,
       data:{"img":img},
       success:function(data){
-        window.location.assign('https://stackoverflow.com/questions/503093/how-do-i-redirect-to-another-webpage');
+        window.location.assign('../B/B.html');
       }
     });
     console.log("topic:"+$('#topic').val());
