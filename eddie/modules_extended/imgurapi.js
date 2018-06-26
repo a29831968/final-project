@@ -2,7 +2,7 @@ exports.up=(array)=>{
 
 var imgur=require('imgur');
 imgur.setClientId('77768b16aa10a00');
-var images=new Array(10);
+var images=new Array();
 imgur.getClientId();
 
 // Saving to disk. Returns a promise.
@@ -33,7 +33,12 @@ imgur.setCredentials('groupg', 'groupgimgur1', '77768b16aa10a00');
 
 imgur.uploadImages(array,('','','Base64'))  //upload multiple images base64
       .then(function(images) {
-                console.log(images);
+                console.log(images[0].link);
+           // for(var i=0;i<images.length;i++)
+          //  {
+                   
+
+          
                     })
     .catch(function (err) {
               console.error(err.message);

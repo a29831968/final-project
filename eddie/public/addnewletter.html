@@ -3,13 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>add</title>
-    <link rel="stylesheet" type="text/css" href="addnewletter.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    </head>
+    <link rel="stylesheet" type="text/css" href="./css/addnewletter.css">
+     <link rel="stylesheet" type="text/css" href="./css/googlemap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script>
+      var x;
+      function myFunction() {
+        x = document.getElementById("date");}
+          </script>
+  </head>
 <body>
   <div class="container">
  <div class="topbar">
-  <div class="close">
+   <div class="close">    
     <img src="./picture/close.png"/>
   </div>
   <div class="next">
@@ -33,7 +39,7 @@
   <div class="user_name">
   hello world
   </div>
-  <input type="text" class="theme" placeholder="輸入主題"/>
+  <textarea placeholder="輸入主題" id="topic"></textarea>
   <div class="star1">
     <img src="./picture/star_gray.png" />  <!--star-->
   </div> 
@@ -62,17 +68,59 @@
   <div class="date_tag">
  <img src="./picture/date.png" />
   </div>
-  <div id="choose"><form><input type="datetime-local" id="date" name="bdaytime">
-      <button id="sure" type="button">確認</button>
-  </form></div>
-</div>  <!--end function bar-->
-    <div id="test">
+  <div id="choose"><input type="date" id="date" value="2000-05-05">   <!--date-->
+      <button id="sure" onclick="myFunction()"     type="button">確認</button>
+  </div>
+  </div>  <!--end function bar-->
+    <div id="test">   <!--the content-->
       <form id="form1">
         <textarea id="txt1" placeholder="輸入說明文字"></textarea>
-      <form>
+      </form>
     </div>
-  </div> 
-  <script src="./js/addnewletter.js"></script>
+  </div>
+  <div class="googlemap">  <!--the part of google api-->
+     <div class="pac-card" id="pac-card">
+  <div>
+    <div id="title">
+      Autocomplete search
+    </div>
+    <div id="type-selector" class="pac-controls">
+      <input type="radio" name="type" id="changetype-all" checked="checked">
+      <label for="changetype-all">All</label>
+
+      <input type="radio" name="type" id="changetype-establishment">
+      <label for="changetype-establishment">Establishments</label>
+
+      <input type="radio" name="type" id="changetype-address">
+      <label for="changetype-address">Addresses</label>
+
+      <input type="radio" name="type" id="changetype-geocode">
+      <label for="changetype-geocode">Geocodes</label>
+    </div>
+    <div id="strict-bounds-selector" class="pac-controls">
+      <input type="checkbox" id="use-strict-bounds" value="">
+      <label for="use-strict-bounds">Strict Bounds</label>
+    </div>
+  </div>
+  <div id="pac-container">
+    <input id="pac-input" type="text"
+        placeholder="Enter a location">
+  </div>
+</div>
+<div id="map"></div>
+<div id="infowindow-content">
+  <img src="" width="16" height="16" id="place-icon">
+  <span id="place-name"  class="title"></span><br>
+  <span id="place-address"></span>
+</div>
+ <button id="return">add</button>
+
+ </div>  <!--end the part of google api-->
+
+ </div>
   <script src="./js/starclick.js"></script>
+  <script src="./js/googlemap.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqG1sUKHuIAVgVwE4UKYJnASaan_wjIvA&libraries=places&callback=initMap" async defer></script>
+ <script src="./js/addnewletter.js"></script>
 </body>
 </html>

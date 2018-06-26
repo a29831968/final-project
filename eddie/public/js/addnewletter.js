@@ -1,8 +1,9 @@
 var set=0;
 var put=0;
 var star=0;
+var friend='';
+
 var img=new Array();
-$()
 $(document).ready(function()
 {   
  $('.close').click(function()   //back to last page
@@ -57,28 +58,48 @@ $(document).ready(function()
 $('.date_tag').click(function()
     {
       $('#choose').show();
-
     });                                 //choose the date
 $('#sure').click(function()
   {
-     $('#choose').hide();
-  
-  }); 
-  $('.next').click(function(event)   //to translate picture
+      $('#choose').hide();
+      
+  });
+  $('.people_tag').click(function()
   {
-    $.ajax({
+     friend=prompt('與誰再一起:','朋友姓名');
+  })
+  $('.place_tag').click(function()
+{
+    $('.googlemap').show();
+
+});
+  $('.next').click(function(event)   
+  {
+    $.ajax({    //pass picture
       method:"post",
       url:"./get_picture",
       traditional:true,
-      data:{img:img},
-    }); // end ajax
-  $.ajax({
+      data:{"img":img},
+      sucess:console.log('hello')
+    }); 
+  $.ajax({          //pass content
     method:"post",
-    url:"./get_textarea",
+    url:"./get_form",
     data:{
-      textarea:$('#txt1').val()
-
+      textarea:$('#txt1').val(), // content
+      topic:$('#topic').val(),   //   topic
+      
      }
     });
-  });
-});
+  $.ajax({
+    method:"post",
+     url:'./get_somedata',
+     data:{
+       x:x.value,  //date
+      getplace:getplace,    //location
+      star:star,   //star
+      friend:friend  //friend
+     }
+  })
+  });  //  clicl next
+});   //ready function
