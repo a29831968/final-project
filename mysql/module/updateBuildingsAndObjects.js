@@ -20,7 +20,7 @@ module.exports.update=function (con, user_name, buildings_info, objs_info, req, 
     con.query("SELECT * FROM buildings WHERE name = ?",user_name, function(err, result){
       if(err) throw err;
       var building=result[0];
-      for(var i=1; i<=25;i++){
+      for(var i=1; i<=35;i++){
         buildings_info.push(result[0][i]);
       }
       data.build=buildings_info;
@@ -30,7 +30,7 @@ module.exports.update=function (con, user_name, buildings_info, objs_info, req, 
         var number=result[0].amount;
         var temp=0;
         var stop=parseInt(x)+1;
-        for(var g=1; g<=25;g++){
+        for(var g=1; g<=35;g++){
           if(result[0][g]!=null){
             temp=temp+1;
             if(temp==stop){
@@ -50,7 +50,7 @@ module.exports.update=function (con, user_name, buildings_info, objs_info, req, 
           if(err) throw err;
           var number=result[0].amount;
           var count=0;
-          for(var i=1; i<=25;i++){
+          for(var i=1; i<=35;i++){
             if(result[0][i]!=null){
               count=count+1;
               objs_info.push(result[0][i]);

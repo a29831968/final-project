@@ -179,7 +179,7 @@ app.get('/mapObjGet', function(req, res){
     if(err) throw err;
     console.log("3..");
     var amount=result[0].amount+1;
-    for (var i=1; i<=25; i++){
+    for (var i=1; i<=35; i++){
       if(result[0][i]==null){
         con.query("UPDATE objects SET ??  = ? WHERE name = ? AND district = ?", [i, index_number ,user_info.name, district],function(err, result){
           if(err) throw err;

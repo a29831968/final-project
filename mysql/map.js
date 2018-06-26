@@ -23,7 +23,6 @@ function initMap() {
   $("#taiwan").click(function(){
     window.location.assign("./homepage.html"); 
   });
- 
   $.ajax({
     method:'get',
     url: './showObjs',
@@ -32,8 +31,6 @@ function initMap() {
     success: function(data){
       mapObjsList=data.mapObjs;
       setObjs(mapObjsList, map);
-    }
-  })
   //
   if (navigator.geolocation){
     console.log("navigator.geolocation");
@@ -48,6 +45,8 @@ function initMap() {
     console.log("Not supported");
   }
   //
+    }
+  })
   //getDeviceLocation();
 }
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {

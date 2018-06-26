@@ -3,7 +3,7 @@ module.exports.retreive_buildings= function(con, user_name, callback){
   var buildings_info=[];
   con.query("SELECT * FROM buildings WHERE name = ?",user_name, function(err, result){
     if(err) throw err;
-    for(var i=1; i<=25;i++){
+    for(var i=1; i<=35;i++){
       buildings_info.push(result[0][i]);
     }
     console.log("building_info:"+buildings_info);

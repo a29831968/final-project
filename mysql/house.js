@@ -5,7 +5,35 @@ var user_info={};
 var friend_list;
 var total;
 var user_profile={};
+function bike(){
+  $("#bike").animate({left:'70vw'},7000);
+}
+function cloud1(){
+  $("#cloud1").animate({left:'50vw'},5000, function(){
+    $("#cloud1").animate({left:'2vw'}, 5000,function(){cloud1()});
+  });
+}
+function cloud2(){
+  $("#cloud2").animate({right:'50vw'},5000, function(){
+    $("#cloud2").animate({right:'2vw'}, 5000,function(){cloud2()});
+  });
+}
+function mov(){
+  $(".entrance").animate({bottom:'42vw'},'slow', function(){
+    $(".entrance").animate({bottom:'48vw'}, 'slow',function(){mov()});
+  });
+}
+function big(){
+  $("#testbtn").animate({width:'14vw', height:'14vw'},'2000', function(){
+    $("#testbtn").animate({width:'12vw',height:'12vw'}, '2000',function(){big()});
+  });
+}
 $(document).ready(function(){
+  bike();
+  cloud1();
+  cloud2();
+  mov();
+  big();
   // profile information
   $.ajax({
     method:"get",
@@ -14,7 +42,7 @@ $(document).ready(function(){
     },
     success: function(data){
       total=data.total;
-      percent=Math.round((total/20)*100);
+      percent=Math.round((total/35)*100);
       user_profile=data.user_profile;
       $("#cir").append('<p id="dis_name">'+percent+'%</p>');
       $(".circular").append('<img width="100vw" src="'+user_profile.url+'"/>')
