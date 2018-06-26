@@ -148,6 +148,16 @@ app.get('/showObjs', function(req, res){
 // get data from maps
 app.get('/mapObjGet', function(req, res){
   console.log("back");
+  // get experience
+  con.query("SELECT * FROM user WHERE name = ?", user_info.name,function(err, result){
+    if(err) throw err;
+    var exp=result[0].exp;
+    console.log("ex:"+exp);
+    exp=parseInt(exp)+20;
+    con.query("UPDATE user SET exp = ? WHERE name = ?", [ exp, user_info.name],function(err, result){
+      if(err) throw err;
+    })
+  })
   var index_number=req.query.objNumber;
   var overall=0;
   con.query("SELECT * FROM total WHERE name = ? AND district = ?", [user_info.name, district],function(err, result){
@@ -189,7 +199,7 @@ app.get('/mapObjGet', function(req, res){
 function getObjAndTotal(req, res){
   var mapObjs=[];
   var total=[];
-  con.query("SELECT * FROM total WHERE name = ? AND district = ?", [user_name, district],function(err, result){
+  con.query("SELECT * FROM total WHERE name = ? AND district = ?", [user_info.name, district],function(err, result){
     if(err) throw err;
     total=result[0];
   }); 

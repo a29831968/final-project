@@ -14,7 +14,7 @@ $(document).ready(function(){
     },
     success: function(data){
       total=data.total;
-      percent=(total/20)*100;
+      percent=Math.round((total/20)*100);
       user_profile=data.user_profile;
       $("#cir").append('<p id="dis_name">'+percent+'%</p>');
       $(".circular").append('<img width="100vw" src="'+user_profile.url+'"/>')
