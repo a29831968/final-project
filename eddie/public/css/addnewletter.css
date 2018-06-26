@@ -240,22 +240,21 @@ margin-bottom:0;
 }
 #button_left{
 display:none;
-background-color:red;
-width:20vw;
-height:20vh;
-z-index:1;
-position:absolute;
+width: 10vw;
+height: 10vh;
+z-index: 1;
+position: absolute;
+left: 3vw;
+top: 30vh;
 }
 #button_right{
 display:none;
-background-color:blue;
-width:20vw;
-height:20vh;
-z-index:1;
-position:absolute;
-right:10vw;
-
-}
+ width: 10vw;
+    height: 10vh;
+    z-index: 1;
+    position: absolute;
+    right: 3vw;
+    top: 30vh;}
 #choose{
 position:absolute;
 z-index:2;
@@ -277,7 +276,23 @@ position:absolute;
 left:110%;
 top:0.5%;
 }
-
+#button_left>img{
+width:100%;
+height:auto;
+}  
+#button_right>img{
+width:100%;
+height:auto;
+}  
+#load{
+  top:0;
+  left:0;
+position:absolute;
+  width:100vw;
+height:100vh;
+z-index=2;
+background-color:rgba(100,100,100,0.5);
+} 
 
 
 

@@ -81,20 +81,15 @@ $('#sure').click(function()
       traditional:true,
       data:{"img":img},
       sucess:console.log('hello')
-    }); 
-  $.ajax({          //pass content
-    method:"post",
-    url:"./get_form",
-    data:{
-      textarea:$('#txt1').val(), // content
-      topic:$('#topic').val(),   //   topic
-      
-     }
     });
-  $.ajax({
-    method:"post",
+    console.log("topic:"+$('#topic').val());
+    $.ajax({
+      method:"post",
      url:'./get_somedata',
      data:{
+       "img":img,
+       textarea:$('#txt1').val(),
+       topic:$('#topic').val(),
        x:x.value,  //date
       getplace:getplace,    //location
       star:star,   //star
