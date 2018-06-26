@@ -458,3 +458,9 @@ p{
   font-size:10vw;
   color: #caa9a9;
 }
+.saying{
+    font-size: 4vw;
+    display: inline-block;
+    color: #818181;
+    margin-top: 2vw;
+}

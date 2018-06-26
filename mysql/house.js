@@ -5,7 +5,35 @@ var user_info={};
 var friend_list;
 var total;
 var user_profile={};
+function bike(){
+  $("#bike").animate({left:'70vw'},7000);
+}
+function cloud1(){
+  $("#cloud1").animate({left:'50vw'},5000, function(){
+    $("#cloud1").animate({left:'2vw'}, 5000,function(){cloud1()});
+  });
+}
+function cloud2(){
+  $("#cloud2").animate({right:'50vw'},5000, function(){
+    $("#cloud2").animate({right:'2vw'}, 5000,function(){cloud2()});
+  });
+}
+function mov(){
+  $(".entrance").animate({bottom:'42vw'},'slow', function(){
+    $(".entrance").animate({bottom:'48vw'}, 'slow',function(){mov()});
+  });
+}
+function big(){
+  $("#testbtn").animate({width:'14vw', height:'14vw'},'2000', function(){
+    $("#testbtn").animate({width:'12vw',height:'12vw'}, '2000',function(){big()});
+  });
+}
 $(document).ready(function(){
+  bike();
+  cloud1();
+  cloud2();
+  mov();
+  big();
   // profile information
   $.ajax({
     method:"get",
@@ -20,6 +48,7 @@ $(document).ready(function(){
       $(".circular").append('<img width="100vw" src="'+user_profile.url+'"/>')
       $(".profile_profile").append('<p class="profile_name">'+user_profile.name+'</p><br><p class="profile_name">Lv:'+user_profile.lv+'</p><br>')
       $(".profile_profile").append('<canvas id="canvas1" width="300" height="20"></canvas>'); 
+      $(".profile_profile").append('<p class="saying">說說你對旅行的看法...</p>');
       $(".pro_cir").append('<img width="100vw" src="'+user_profile.url+'"/>')
       // draw exp
       var canvas = document.getElementById("canvas1");

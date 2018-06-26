@@ -225,3 +225,9 @@ border-color:navy;
 p{
   margin:0;
 }
+.saying{
+    font-size: 4vw;
+    display: inline-block;
+    color: #818181;
+    margin-top: 2vw;
+}
