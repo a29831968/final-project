@@ -6,7 +6,7 @@ module.exports.retreive_obj=function(con, user_name, callback){
     var count=0;
     var number=result[0].amount;
     if(number>0){
-      for(var i=1; i<=25;i++){
+      for(var i=1; i<=35;i++){
         if(result[0][i]!=null){
           count=count+1;
           objs_info.push(result[0][i]);

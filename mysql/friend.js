@@ -11,7 +11,7 @@ $(document).ready(function(){
     },
     success: function(data){
       total=data.total;
-      percent=Math.round((total/20)*100);
+      percent=Math.round((total/35)*100);
       user_profile=data.user_profile;
       $("#cir").append('<p id="dis_name">'+percent+'%</p>');
       $(".profile_profile").append('<p class="profile_name">'+user_profile.name+'</p><br><p class="profile_name">Lv:'+user_profile.lv+'</p><br>')
