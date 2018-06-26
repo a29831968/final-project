@@ -57,7 +57,7 @@ app.get("/user_data", function(req, res) {
       if(err) throw err;
         user_info.lv=result[0].lv;
         user_info.exp=result[0].exp;
-        con.query("UPDATE user SET url = ?",user_info.url,function(err, result){
+        con.query("UPDATE user SET url = ? WHERE name = ?",[user_info.url, user_info.name],function(err, result){
           if(err) throw err;
         })
         // get all users

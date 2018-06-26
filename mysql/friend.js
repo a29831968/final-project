@@ -36,6 +36,7 @@ $(document).ready(function(){
     },
     success: function(data){
       friend_info=data;
+      $(".circular").append('<img width="100vw" src="'+friend_info[0].url+'"/>')
       // draw exp
       var canvas = document.getElementById("canvas");
       if (canvas.getContext) {
