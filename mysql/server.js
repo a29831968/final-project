@@ -33,6 +33,14 @@ var con=require('./module/dbconnect.js');
 // check if user is already in the database or not.
 var check_User=require('./module/log.js');
 
+// global store building and obj
+var buildings_info=[];
+var objs_info=[];
+
+// require retreive obj & building
+var data_obj=require('./module/retreiveObj.js');
+var data_building=require('./module/retreiveBuildings.js');
+
 // insert default data of new User into db
 var new_User=require('./module/newUser.js');
 app.get("/user_data", function(req, res) {
@@ -71,16 +79,22 @@ app.get("/user_data", function(req, res) {
         friend_list=result;
       })
     }
+    data_building.retreive_buildings(con, user_info.name, function(result){
+      var total=0;
+      for(var i=0; i<result.length; i++){
+        if(result[i]!=null){
+          total=total+1;
+        }
+      }
+      con.query("SELECT * FROM objects WHERE name = ?", user_info.name,function(err, result){
+        if(err) throw err;
+        total=parseInt(total)+parseInt(result[0].amount);
+        res.send({total:total, user_profile:user_info});
+      })
+    });  
   }); 
 })
 
-// global store building and obj
-var buildings_info=[];
-var objs_info=[];
-
-// require retreive obj & building
-var data_obj=require('./module/retreiveObj.js');
-var data_building=require('./module/retreiveBuildings.js');
 app.get("/buildings", function(req, res) {
   data_building.retreive_buildings(con, user_info.name, function(result){
     buildings_info=result;
