@@ -75,12 +75,15 @@ $('#sure').click(function()
 });
   $('.next').click(function(event)   
   {
+    $('#load').show();
     $.ajax({    //pass picture
       method:"post",
       url:"./get_picture",
       traditional:true,
       data:{"img":img},
-      sucess:console.log('hello')
+      success:function(data){
+        window.location.assign('https://stackoverflow.com/questions/503093/how-do-i-redirect-to-another-webpage');
+      }
     });
     console.log("topic:"+$('#topic').val());
     $.ajax({
@@ -94,6 +97,10 @@ $('#sure').click(function()
       getplace:getplace,    //location
       star:star,   //star
       friend:friend  //friend
+     },
+     success:function(data){
+       console.log(data);
+    
      }
   })
   });  //  clicl next

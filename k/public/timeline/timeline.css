@@ -1,0 +1,112 @@
+html, body{
+  height:100%;
+  width:100%;
+  padding:0;
+  margin:0;
+  background-image: url("assets/background.png");
+}
+
+#banner{
+  height:10vh;
+  width:100%;
+  background-color:black;
+}
+
+#logo{
+  position:absolute;
+  height:6vh;
+  width:auto;
+  left:50%;
+  transform:translateX(-50%);
+  top:2vh;
+}
+
+#back{
+  position:absolute;
+  height:3vh;
+  width:auto;
+  top:3.5vh;
+  left:5vw;
+}
+
+#fb{
+  position:absolute;
+  height:6vh;
+  width:auto;
+  top:2vh;
+  left:85vw;
+}
+
+#image{
+  height:auto;
+  width:100%;
+  background-color:gray;
+}
+
+#pic{
+  width:100%;
+  height:auto;
+}
+
+#post_holder{
+  height:50vh;
+  width:100%;
+  overflow: scroll;
+}
+
+.post{
+  background-color: black;
+  height:10vh;
+  width:100%;
+  margin-bottom:2.5vh;
+}
+
+.title_holder{
+  position:absolute;
+  display:inline-block;
+  height:10vh;
+  width:60%;
+  left:10vw;
+}
+
+.title{
+  display:inline-block;
+  position:relative;
+  height:10vh;
+  width:60%;
+  font-size:30px;
+  color:white;
+  left:10vw;
+  top:50%;
+  transform:translateY(-50%);
+  margin-top:50px;
+}
+
+.like_count{
+  display:inline-block;
+  color:white;
+  width:5%;
+  left:62%;
+  top:49%;
+}
+
+.comment_count{
+  display:inline-block;
+  color:white;
+  width:5%;
+  left:72%;
+  top:49%;
+}
+.like_icon{
+  height:15%;
+  top:50%;
+  left:60%;
+  margin-right:10px;
+}
+
+.comment_icon{
+  height:15%;
+  top:50%;
+  left:70%;
+  margin-right:10px;
+}
