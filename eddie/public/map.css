@@ -1,0 +1,49 @@
+body{
+  margin:0px;
+  height:100vh;
+  width:100vw;
+}
+
+#map{
+  height:100vh;
+  width:100vw;
+}
+
+#info{
+  position:absolute;
+  width:80vw;
+  height:110vw;
+  bottom: 45vw;
+  left:10vw;
+  z-index:3;
+  display:none;
+}
+
+#mask{
+  left:0vw;
+  top:0vw;
+  position:absolute;
+  height:100vh;
+  width:100vw;
+  z-index:2;
+  background-color: rgb(0, 0, 0, 0.3);
+  display:none;
+}
+
+.getButtonG{
+  position:absolute;
+  height:15vw;
+  width:40vw;
+  z-index:3;
+  bottom:40vw;
+  left:30vw;
+  display:none;
+}
+#taiwan{
+  position:absolute;
+  height:12vw;
+  width:7vw;
+  bottom:9vw;
+  left:4vw;
+  z-index:1;
+}
