@@ -9,7 +9,13 @@
 
 var x=0;
 $(document).ready(function(){
-	$("#friends").click(function(){
+  $(".profile_arrow").click(function(){
+    $(".change_to_profile").hide();
+  });
+  $(".small_person").click(function(){
+    $(".change_to_profile").show();
+  });
+  $("#friends").click(function(){
 		if(x==0){
 			$("#friend_list").animate({opacity:'1'});
 			x++;
@@ -42,9 +48,28 @@ $(document).ready(function(){
 
 </div>
 <button id="tainan_btn">TAINAN</button>
-<button id="taipei_btn">TAIPEI</button>
 
-
+<div class="change_to_profile">
+  <div id="cir">
+    <p id="dis_name">TAINAN</p>
+  </div>
+  <img src="profile_pic/background.png"/>
+  <div class="profile_circle">
+    <img src="profile_pic/circle.png"/>
+  </div>
+  <div class="profile_top">
+    <img src="profile_pic/top_word.png"/>
+  </div>
+  <div class="profile_arrow">
+    <img src="profile_pic/arrow.png"/>
+  </div>
+  <div class="profile_bottom">
+    <div class="pro_cir">
+    </div>
+    <div class="profile_profile">
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

@@ -46,6 +46,13 @@ body,html{
   height:5.5vw;
   background-color: rgb(255, 255, 255, 0.1);
 }
+#block20{
+  position:absolute;
+  top:0vw;
+  left:20vw;
+  width:60vw;
+  height:60vw;
+}
 #block7{
   display:inline-block;
   position:absolute;
@@ -323,9 +330,131 @@ img{
 }
 .profile_bottom{
   position:absolute;
-  bottom:0%;
-  left:0%;
+  bottom:0vw;
+  left:0vw;
+  background-color:black;
+  width:100vw;
+  height:35vw;
+  display:none;
+}
+.pro_cir{
+  display:inline-block;
+  width:21vw;
+  height:21vw;
+  overflow:hidden;
+  border-radius:50%;
+  z-index:2;
+  margin-top:7vw;
+  margin-left:15vw;
+}
+.profile_name{
+  font-size:5.5vw;
+  display:inline-block;
+  color: #818181;
+  margin-top: 2vw;
+}
+.profile_profile{
+  margin-left:50vw;
+  position: absolute;
+  display: inline-block;
+  left: 0vw; 
+  bottom: 0vw; 
+  width: 50vw; 
+  height: 35vw; 
+  z-index: 2;
 }
 .profile_circle{
   top:30vw;
+}
+
+#span{
+  z-index:2;
+  font-size:3vw;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 8;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 12vw;
+}
+
+.sidenav a{
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  transition: 0.3s;
+  display:block;
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.circular{
+  display:inline-block;
+  width:16vw;
+  height:16vw;
+  overflow:hidden;
+  border-radius:50%;
+  position:absolute;
+  z-index:1;
+  top:2vw;
+  left:2vw;
+}
+.user_info{
+  position:absolute;
+  z-index:1;
+  left:18vw;
+  top:2vw;
+}
+.user_info > p{
+  font-size:3vw;
+  margin:0;
+}
+p{
+  margin:0;
+}
+.friend_cir{
+  display:inline-block;
+  width:8vw;
+  height:8vw;
+  overflow:hidden;
+  border-radius:50%;
+  z-index:8;
+  margin-bottom:0;
+}
+.names{
+  display:inline-block;
+  font-size:4vw;
+  color: #818181;
+  padding-left:1vw;
+}
+.friend_list{
+  margin-bottom:2vw;
+  margin-left:2vw;
+  width:40vw;
+}
+#cir {
+  position: absolute;
+  z-index: 2;
+  width: 50vw;
+  height: 30vw;
+  top: 50vw;
+  left: 25vw;
+  text-align:center;
+}
+#dis_name{
+  display:inline-block;
+  font-size:10vw;
+  color: #caa9a9;
 }

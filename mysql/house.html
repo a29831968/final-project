@@ -199,10 +199,12 @@
     <div id="small_person" class="small_person"><img width="100%" src="asset/small_person.png"/></div>
     <div id="taiwan"><img width="100%" src="asset/small_Taiwan.png"/></div>
     <div id="map"><img width="100%" src="asset/small_map.png"/></div>
-  
     <div class="entrance"><img width="100%" src="asset/note.png"/></div>
     <div class="switchscreen"><img src="./picture/8.png"/></div>
     <div class="change_to_profile">
+      <div id="cir">
+        <p id="dis_name">TAINAN</p>
+      </div>
       <img src="profile_pic/background.png"/>
       <div class="profile_circle">
         <img src="profile_pic/circle.png"/>
@@ -214,8 +216,24 @@
         <img src="profile_pic/arrow.png"/>
       </div>
       <div class="profile_bottom">
-        <img src="profile_pic/bottom.png"/>
+        <div class="pro_cir">
+        </div>
+        <div class="profile_profile">
+        </div>
       </div>
+    </div>
+    <!-- name, level and exp -->
+    <div class="circular">
+    </div>
+    <div class="user_info">
+      <p id="self_name">name</p><p id="lv">Lv.</p>
+      <span id="span" style="cursor:pointer" onclick="openNav()"> User List</span>
+      <br>
+      <canvas id="canvas" width="200" height="20"></canvas> 
+    </div>
+    <!-- navigation of users -->
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     </div>
     </body>
     <script type="text/javascript" src="house.js"></script>

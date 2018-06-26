@@ -1,14 +1,30 @@
+
+  const express = require('express')
+  const app = express()
+  const https = require('https')
+  const fs=require('fs')
+  const port = 10065
+
+  // create https
+  const options = 
+{
+  ca: fs.readFileSync('/home/uidd2018/ssl/ca_bundle.crt'),
+  cert: fs.readFileSync('/home/uidd2018/ssl/certificate.crt'),
+  key: fs.readFileSync('/home/uidd2018/ssl/private.key')
+}
+https.createServer(options, app).listen(port, () => console.log(`listen on port:`+ port));
+  /*
 const express = require('express')
 const app = express()
 const port = 10066
-
-app.listen(port)
-app.use(express.static(__dirname + '/public'))
+*/
+//app.listen(port)
+app.use(express.static(__dirname + '')) // /public
 app.use(express.json()); // to support JSON-encoded bodies
 app.use(express.urlencoded({extended: true})); // to support URL-encoded bodies
 
 // get json file from the file: name.json
-var fs = require('fs');
+//var fs = require('fs');
 var obj;
 fs.readFile('./public/name.json', 'utf8', function (err, data) {
     if (err) throw err;

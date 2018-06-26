@@ -1,7 +1,84 @@
 // needed info
 var buildings_array=[];
 var objects_array=[];
+var user_info={};
+var friend_list;
+var total;
+var user_profile={};
 $(document).ready(function(){
+  // profile information
+  $.ajax({
+    method:"get",
+    url: "./profile_profile",
+    data:{
+    },
+    success: function(data){
+      total=data.total;
+      percent=(total/20)*100;
+      user_profile=data.user_profile;
+      $("#cir").append('<p id="dis_name">'+percent+'%</p>');
+      $(".circular").append('<img width="100vw" src="'+user_profile.url+'"/>')
+      $(".profile_profile").append('<p class="profile_name">'+user_profile.name+'</p><br><p class="profile_name">Lv:'+user_profile.lv+'</p><br>')
+      $(".profile_profile").append('<canvas id="canvas1" width="300" height="20"></canvas>'); 
+      $(".pro_cir").append('<img width="100vw" src="'+user_profile.url+'"/>')
+      // draw exp
+      var canvas = document.getElementById("canvas1");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "rgb(255,228,196)";
+        ctx.fillRect (0, 0, 300, 20);
+        exp=parseInt(user_profile.exp)*3; 
+        ctx.fillStyle = "rgb(200,0,0)";
+        ctx.fillRect (0, 0, exp, 20);
+      }
+    }
+  })
+  $.ajax({
+    method:"get",
+    url: "./user_all_info",
+    data:{
+    },
+    success: function(data){
+      user_info=data.user_info;
+      friend_list=data.friend_list;
+      // user list append
+      for (var i=0; i<friend_list.length; i++){
+        if(friend_list[i].url == user_info.url){
+          $("#mySidenav").append('<div class="friend_list"><div class="friend_cir"><img width="100vw" src="'+friend_list[i].url+'"/></div> <p class="names" id="'+friend_list[i].id+'">'+ friend_list[i].name+'</p></div>');
+        }
+      }
+      // click function for every users
+      // navigate to other user's house
+      $('.names').click(function () {
+        var NameId;
+        NameId = $(this).attr('id');
+        console.log(NameId);
+        // set the username which you want to check
+        $.ajax({
+          method:"get",
+          url: "./friend_id",
+          data:{
+            id:NameId,
+          },
+          success: function(data){
+          }
+        })
+        window.location.assign("./friend.html");
+      });
+      // draw exp
+      var canvas = document.getElementById("canvas");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "rgb(255,228,196)";
+        ctx.fillRect (0, 0, 200, 20);
+        exp=parseInt(user_info.exp)*2; 
+        ctx.fillStyle = "rgb(200,0,0)";
+        ctx.fillRect (0, 0, exp, 20);
+      }
+      $("#self_name").html(user_info.name);
+      $("#lv").html("Lv:"+user_info.lv);
+    }
+  })
   $("#taiwan").click(function(){
     window.location.assign("./homepage.html");
   })
@@ -34,6 +111,7 @@ $(document).ready(function(){
               'z-index':'2'
         }, 100,
         );
+    $('.profile_bottom').css({'display':'block'});
   });
   //
   console.log("get ready");
@@ -201,3 +279,11 @@ $("#mask").click(function(){
     }
 })
 
+// user list navigation open and close
+function openNav() {
+      document.getElementById("mySidenav").style.width = "40vw";
+}
+
+function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+}

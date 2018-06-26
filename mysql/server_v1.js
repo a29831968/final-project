@@ -220,7 +220,7 @@ app.get('/showObjs', function(req, res){
     console.log("total:"+total);
     con.query("SELECT * FROM map", function(err, result){
       if(err) throw err;
-      console.log("lengttttttt:"+result.length);
+      console.log("length:"+result.length);
       for(var i=0;i<result.length ; i++){
         if(total==null || total[i+1]==null){
           mapObjs.push({filename: result[i].filename, 
