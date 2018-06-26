@@ -14,7 +14,7 @@ $(document).ready(function(){
     },
     success: function(data){
       total=data.total;
-      percent=(total/20)*100;
+      percent=Math.round((total/20)*100);
       user_profile=data.user_profile;
       $("#cir").append('<p id="dis_name">'+percent+'%</p>');
       $(".circular").append('<img width="100vw" src="'+user_profile.url+'"/>')
@@ -43,7 +43,10 @@ $(document).ready(function(){
       friend_list=data.friend_list;
       // user list append
       for (var i=0; i<friend_list.length; i++){
-        if(friend_list[i].url == user_info.url){
+        console.log(friend_list[i].url);
+        console.log(user_info.url);
+        if(friend_list[i].url !=  user_info.url){
+          console.log("insede");
           $("#mySidenav").append('<div class="friend_list"><div class="friend_cir"><img width="100vw" src="'+friend_list[i].url+'"/></div> <p class="names" id="'+friend_list[i].id+'">'+ friend_list[i].name+'</p></div>');
         }
       }

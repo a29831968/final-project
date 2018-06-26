@@ -11,7 +11,7 @@ $(document).ready(function(){
     },
     success: function(data){
       total=data.total;
-      percent=(total/20)*100;
+      percent=Math.round((total/20)*100);
       user_profile=data.user_profile;
       $("#cir").append('<p id="dis_name">'+percent+'%</p>');
       $(".profile_profile").append('<p class="profile_name">'+user_profile.name+'</p><br><p class="profile_name">Lv:'+user_profile.lv+'</p><br>')
@@ -36,6 +36,7 @@ $(document).ready(function(){
     },
     success: function(data){
       friend_info=data;
+      $(".circular").append('<img width="100vw" src="'+friend_info[0].url+'"/>')
       // draw exp
       var canvas = document.getElementById("canvas");
       if (canvas.getContext) {
