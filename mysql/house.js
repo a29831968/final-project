@@ -20,6 +20,7 @@ $(document).ready(function(){
       $(".circular").append('<img width="100vw" src="'+user_profile.url+'"/>')
       $(".profile_profile").append('<p class="profile_name">'+user_profile.name+'</p><br><p class="profile_name">Lv:'+user_profile.lv+'</p><br>')
       $(".profile_profile").append('<canvas id="canvas1" width="300" height="20"></canvas>'); 
+      $(".profile_profile").append('<p class="saying">說說你對旅行的看法...</p>');
       $(".pro_cir").append('<img width="100vw" src="'+user_profile.url+'"/>')
       // draw exp
       var canvas = document.getElementById("canvas1");
