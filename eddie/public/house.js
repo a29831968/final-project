@@ -128,7 +128,7 @@ $(document).ready(function(){
               'height':'100%'
         }, 100,
         function(){
-          window.location.assign("./letter/letter1.html");
+          window.location.assign("./timeline/timeline.html");
         });
   });
 
