@@ -31,7 +31,7 @@ left:5vw;
 }
 
 #holder{
-  background-color:white;
+  background-color:#f8faf5;
   height:70vh;
   width:100%;
   overflow:scroll;
@@ -44,11 +44,15 @@ left:5vw;
 }
 
 .comment{
-  background-color:gray;
-  margin-bottom:2vh;
+  width: 90vw;
+  border-radius: 3.5%;
+  margin-left: 5vw;
+  background-color: #e3efef;
+  margin-top: 2vh;
 }
 
 .icon{
+  width:13vw;
   position:relative;
   left:10vw;
   border-radius:50%;
@@ -69,4 +73,16 @@ left:5vw;
   font-size:40px;
   top:-50px;
 }
+#message{
+  height: 14vh;
+  width: 80%;
+  font-size: 5.5vw;
 
+}
+#enter{
+  position: absolute;
+  bottom: 18vw;
+  right: 5vw;
+  height: 10vw;
+  width: 10vw;
+}

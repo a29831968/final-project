@@ -14,7 +14,9 @@ $(document).ready(function(){
       };
     },
   });
-
+  $("#comment_icon").click(function(){
+    window.location.assign("../comment.html");
+  })
   $("#like_icon").click(function(){
     if(liked == 0){
       $.ajax({
