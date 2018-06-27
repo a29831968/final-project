@@ -434,7 +434,26 @@ app.get("/B/like_count", function(){
   });
 });
 
+// show all comments
+app.get("/comment_show", function(req, res){
+  var sql = "SELECT user_name, user_url, comment FROM comment WHERE pid= ? ";
+  con.query(sql, uid, function(err,result){
+    if(err) throw err;
+    res.send(result);
+  });
+});
 
-
-
+// insert comment
+app.get("/get_comment", function(req, res){
+  var sql = "INSERT INTO comment SET  ?";
+  var values = {user_name: user_info.name, user_url: user_info.url, comment:req.query.message};
+  con.query(sql, values, function(err, result){
+    if(err) throw err;
+    console.log("show after insert msg");
+    con.query(sql, uid, function(err,result){
+      if(err) throw err;
+      res.send(result);
+    });
+  });
+});
 
