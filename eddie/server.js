@@ -113,7 +113,10 @@ app.get("/user_data", function(req, res) {
     });  
   }); 
 })
-
+app.post('/user',function(req,res)
+    {  
+      res.send({user_info_name:user_info.name, user_info_url:user_info.url}); 
+    })
 app.get("/buildings", function(req, res) {
   data_building.retreive_buildings(con, user_info.name, function(result){
     buildings_info=result;
@@ -326,7 +329,7 @@ app.post('/get_picture',function(req,res)   //upload picture to imgur
     })
 app.post('/get_somedata',function(req,res)  //get textarea and put it in database
     {
-
+      console.log("in the get_somedata");
       uid=uuid.v1();
       content=req.body.textarea;  
       topic=req.body.topic;  
@@ -334,7 +337,7 @@ app.post('/get_somedata',function(req,res)  //get textarea and put it in databas
         star=req.body.star
         place=req.body.getplace
         friend=req.body.friend
-        var sql = "INSERT INTO letter (letter_id,letter_topic, letter_content,letter_stars,letter_date,letter_palce,letter_friends) VALUES ('"+uid+"','"+topic+"', '"+content+"','"+star+"','"+date+"','"+place+"','"+friend+"');"
+        var sql = "INSERT INTO letter (letter_writer ,letter_id,letter_topic, letter_content,letter_stars,letter_date,letter_palce,letter_friends) VALUES ('"+user_info.name+"','"+uid+"','"+topic+"', '"+content+"','"+star+"','"+date+"','"+place+"','"+friend+"');"
         con.query(sql, function (err, result) {
           if (err) throw err;
           console.log(" record inserted");
@@ -381,10 +384,19 @@ app.get("/B/picture", function(req,res){
   });
 });
 
+app.get("/B/user_pic", function(req,res){
+  var sql = "SELECT url FROM user WHERE id=?";
+  con.query(sql, user_info.uid, function(err, result){
+    if(err) throw err;
+    console.log("send icon");
+    res.send(result);
+  });
+});
+
 //USER_ID
 app.get("/B/like_data", function(req, res){
   var sql = "SELECT * FROM likes WHERE uid=? AND pid=?";
-  con.query(sql, [USER_ID, uid], function(err, result){
+  con.query(sql, [user_info.uid, uid], function(err, result){
     if(err) throw err;
     res.send(result);
   });
@@ -392,7 +404,7 @@ app.get("/B/like_data", function(req, res){
 
 app.get("/B/insert", function(req, res){
   var sql = "INSERT INTO likes (uid, pid) VALUES ?";
-  var values = [[USER_ID, uid],];
+  var values = [[user_info.uid, uid],];
   con.query(sql, [values], function(err, result){
     if(err) throw err;
     console.log("inserted");
@@ -401,7 +413,7 @@ app.get("/B/insert", function(req, res){
 
 app.get("/B/delete", function(req, res){
   var sql = "DELETE FROM likes WHERE uid=? AND pid=?";
-  con.query(sql, [USER_ID, uid], function(err, result){
+  con.query(sql, [user_info.uid, uid], function(err, result){
     if(err) throw err;
     console.log("deleted");
   });

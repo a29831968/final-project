@@ -58,6 +58,7 @@ $(document).ready(function(){
 		data:{},
 		success:function(data){
       console.log("received post data...");
+      var name_holder = document.getElementById("name");
       var title = document.getElementById("title_w");
 			var content = document.getElementById("content_w");
       var likes = document.getElementById("like_count");
@@ -65,6 +66,7 @@ $(document).ready(function(){
       var date = document.getElementById("time");
       rating = data[0].letter_stars;
       console.log(rating);
+      name_holder.innerHTML = data[0].letter_writer;
       title.innerHTML = data[0].letter_topic;
 			content.innerHTML = data[0].letter_content;
       likes.innerHTML = data[0].letter_like;
@@ -90,6 +92,17 @@ $(document).ready(function(){
       }
     },
   });
+
+  $.ajax({
+    method: "get",
+    url: "/B/user_pic",
+    data: {},
+    success: function(data){
+      console.log("got icon "+data[0].url);
+      $("#auther_icon").attr("src",data[0].url);
+    },
+  });
+
 
   $("#back").click(function(){
     window.location.assign('../timeline/timeline.html');

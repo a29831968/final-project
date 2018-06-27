@@ -2,10 +2,21 @@ var set=0;
 var put=0;
 var star=0;
 var friend='';
-
 var img=new Array();
 $(document).ready(function()
 {   
+    $.ajax({    //pass picture
+      method:"post",
+      url:"./user",
+      traditional:true,
+      data:{},
+      success:function(data){
+        user_info_name=data.user_info_name;    
+        user_info_url=data.user_info_url;    
+        $('#head').attr('src',user_info_url); 
+        $('.user_name').text(user_info_name);
+      }
+    });
  $('.close').click(function()   //back to last page
   {
       window.location.assign('../timeline/timeline.html') 

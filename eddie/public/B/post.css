@@ -148,6 +148,7 @@ height:50%;
 left:5%;
 top:50%;
 transform:translateY(-50%);
+border-radius:50%;
 }
 
 #auther_name{
