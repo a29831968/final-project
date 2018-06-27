@@ -2,6 +2,9 @@ var post_count = 0;
 var pid_table = [];
 
 $(document).ready(function(){
+  $("#back").click(function(){
+    window.location.assign('../house.html'); 
+  })
   $.ajax({
     method: "get",
     url: "/timeline/post_data",
@@ -13,7 +16,7 @@ $(document).ready(function(){
       var result_holder = document.getElementById("post_holder");
       var result = '';
       for(var i=0; i<data.length; i++){
-        result += '<div class="post"><div class="title">' + data[i].letter_topic + '</div><img class="like_icon" src="assets/like.png"/><div class="like_count">' + data[i].letter_like + '</div><img class="comment_icon" src="assets/comment.png"/><div class="comment_count">0</div></div>';
+        result += '<div class="post"><div class="title">' + data[i].letter_topic + '</div><img class="like_icon" src="assets/like.png"/><div class="like_count">' + data[i].letter_like + '</div><img class="comment_icon" src="assets/comment.png"/><div class="comment_count">'+data[i].letter_comment+'</div></div>';
         pid_table[i] = data[i].letter_id;
       }
       result_holder.innerHTML = result;

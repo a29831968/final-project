@@ -4,7 +4,7 @@ const app=express();
 const fs = require('fs')
 const https = require('https')
 const port=10063;
-const imgurUPLOAD=require('./modules_extended/imgurapi');
+const imgurUPLOAD=require('./modules_extended/imgurapi.js');
 const mysql=require('mysql') 
 // create https
 const options = 
@@ -351,7 +351,7 @@ app.post('/get_somedata',function(req,res)  //get textarea and put it in databas
 //send post data to post
 app.get("/timeline/post_data", function(req, res) {
   console.log("receive request from TL");
-  var sql = "SELECT letter_id, letter_topic, letter_like FROM letter";
+  var sql = "SELECT letter_id, letter_topic, letter_like, letter_comment FROM letter";
 
   con.query(sql, function(err, result){
     if(err) throw err;
@@ -385,11 +385,18 @@ app.get("/B/picture", function(req,res){
 });
 
 app.get("/B/user_pic", function(req,res){
-  var sql = "SELECT url FROM user WHERE id=?";
-  con.query(sql, user_info.uid, function(err, result){
+  console.log("id:"+uid);
+  var sql = "SELECT letter_writer FROM letter WHERE letter_id=?";
+  con.query(sql, uid, function(err, result){
     if(err) throw err;
-    console.log("send icon");
-    res.send(result);
+    var x=result[0].letter_writer;
+    console.log("debug:"+result[0].letter_writer);
+    var sql="SELECT url FROM user WHERE name=?";
+    con.query(sql, x, function(err,result){
+      if(err) throw err;
+      console.log("send icon");
+      res.send(result);
+    });
   });
 });
 
@@ -419,7 +426,7 @@ app.get("/B/delete", function(req, res){
   });
 });
 
-app.get("/B/like_count", function(){
+app.get("/B/like_count", function(req, res){
   console.log("counting likes...");
   var sql = "SELECT uid FROM likes WHERE pid=?";
   con.query(sql, uid, function(err,result){
@@ -428,9 +435,10 @@ app.get("/B/like_count", function(){
     console.log(count);
     var sql = "UPDATE letter SET letter_like = ? WHERE letter_id = ?";
     con.query(sql, [count, uid], function(err,result){
-      if(err) throw err;
+       if(err) throw err;
       console.log("count updated");
     });
+    res.send({count:count});
   });
 });
 
@@ -446,14 +454,25 @@ app.get("/comment_show", function(req, res){
 // insert comment
 app.get("/get_comment", function(req, res){
   var sql = "INSERT INTO comment SET  ?";
-  var values = {user_name: user_info.name, user_url: user_info.url, comment:req.query.message};
+  var values = {user_name: user_info.name, user_url: user_info.url, comment:req.query.message, pid:uid};
   con.query(sql, values, function(err, result){
     if(err) throw err;
     console.log("show after insert msg");
-    con.query(sql, uid, function(err,result){
+    var sql = "SELECT user_name, user_url, comment FROM comment WHERE comment= ? ";
+    con.query(sql, req.query.message, function(err,result){
       if(err) throw err;
       res.send(result);
     });
+  })
+});
+app.get("/B/comment_count", function(req,res){
+  var sql="SELECT user_name FROM comment WHERE pid=?";
+  con.query(sql, uid, function(err, result){
+    var count=result.length;
+    var sql="UPDATE letter SET letter_comment=? WHERE letter_id=?";
+    con.query(sql, [count, uid], function(err, result){
+      if(err) throw err;
+      console.log("comment count updated");
+    });
   });
 });
-

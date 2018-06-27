@@ -120,16 +120,18 @@ $(document).ready(function(){
   })
   //
   $('.entrance').click(function(){
+    /*
     $('.switchscreen').animate(
         {
               'left':'0px',
               'top':'0px',
               'width':'100%',
               'height':'100%'
-        }, 100,
+        }, 10,
         function(){
           window.location.assign("./timeline/timeline.html");
-        });
+        });*/
+          window.location.assign("./timeline/timeline.html");
   });
 
   // switch profile 

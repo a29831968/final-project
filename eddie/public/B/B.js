@@ -3,6 +3,13 @@ var liked = 0;
 $(document).ready(function(){
   $.ajax({
     method: "get",
+    url: "/B/comment_count",
+    data: {},
+    success: function(data){
+    },
+  });
+  $.ajax({
+    method: "get",
     url: "/B/like_data",
     data: {},
     success: function(data){
@@ -48,7 +55,11 @@ $(document).ready(function(){
       method: "get",
       url: "/B/like_count",
       data: {},
-      success: function(data){},
+      success: function(data){
+        console.log("like:"+data.count);
+        var likes = document.getElementById("like_count");
+        likes.innerHTML = data.count;
+      },
     });
   });
 
@@ -72,7 +83,7 @@ $(document).ready(function(){
       title.innerHTML = data[0].letter_topic;
 			content.innerHTML = data[0].letter_content;
       likes.innerHTML = data[0].letter_like;
-      comments.innerHTML = 0;
+      comments.innerHTML = data[0].letter_comment;
       date.innerHTML = data[0].letter_date;
       for(i=1;i<6;i++){
         if(rating > i-1){
