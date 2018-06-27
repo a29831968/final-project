@@ -1,0 +1,72 @@
+html, body
+{
+    height: 100%;
+	width:100%;
+	padding: 0;
+    margin: 0;
+    background-color:black;
+}
+
+#banner{
+height:10vh;
+width:100%;
+background-color:black;
+}
+
+#logo{
+position:absolute;
+height:6vh;
+width:auto;
+left:50%;
+transform:translateX(-50%);
+top:2vh;
+}
+
+#back{
+position:absolute;
+height:3vh;
+width:auto;
+top:3.5vh;
+left:5vw;
+}
+
+#holder{
+  background-color:white;
+  height:70vh;
+  width:100%;
+  overflow:scroll;
+}
+
+#input{
+  background-color:white;
+  height:15vh;
+  width:100%;
+}
+
+.comment{
+  background-color:gray;
+  margin-bottom:2vh;
+}
+
+.icon{
+  position:relative;
+  left:10vw;
+  border-radius:50%;
+}
+
+.name{
+  display:inline-block;
+  font-size:40px;
+  position:relative;
+  left:12vw;
+  top:-50px;
+}
+
+.content{
+  display:inline-block;
+  position:relative;
+  left:15vw;
+  font-size:40px;
+  top:-50px;
+}
+
